@@ -48,10 +48,10 @@ export const site = {
       },
     },
     strengths: [
-      { title: "دراسة الاحتياج", body: "أجلس مع من يعمل الإجراء فعلاً، وأكتب ما يحدث قبل أن أقترح أي شيء." },
+      { title: "دراسة الاحتياج", body: "أجلس مع من ينفّذ الإجراء فعلاً، وأكتب ما يحدث قبل أن أقترح أي شيء." },
       { title: "تحليل ورسم المسار", body: "أفكك الإجراء إلى خطوات ومسؤوليات وبيانات، وأحدد أين يضيع الوقت." },
-      { title: "إنجاز سريع", body: "نموذج أولي يعمل خلال أيام، يُجرّب على الواقع ثم يُحسّن." },
-      { title: "دقة في التفاصيل", body: "كل حقل وكل تنبيه له سبب، وكل مستند مطابق للمعيار المطلوب." },
+      { title: "إنجاز سريع", body: "أسلّم نموذجاً أولياً يعمل خلال أيام، أجرّبه على الواقع ثم أحسّنه." },
+      { title: "دقة في التفاصيل", body: "أحرص أن يكون لكل حقل وتنبيه سبب، وأن يطابق كل مستند المعيار المطلوب." },
     ],
     labels: {
       before: "قبل",
@@ -63,7 +63,7 @@ export const site = {
       tools: "الأدوات",
       sector: "القطاع",
       role: "دوري",
-      back: "العودة إلى الأعمال",
+      back: "العودة إلى المشاريع",
       next: "المشروع التالي",
       langSwitch: "English",
       call: "اتصال",
@@ -73,7 +73,7 @@ export const site = {
       certs: "دورات وشهادات",
       recommend: "قالوا عن عملي",
       tools_title: "أدوات أعمل بها يومياً",
-      viewToggle: "عرض الحالة",
+      viewToggle: "طريقة العرض",
       employer: "ضمن عملي في الشؤون الأكاديمية، المستشفى السعودي الألماني – عسير",
       independent: "مشروع مستقل",
       illustrative: "المعاينة توضيحية ببيانات وهمية.",
@@ -98,7 +98,7 @@ export const site = {
       "Digital product innovation",
       "Workflow automation",
     ],
-    nav: { work: "Healthcare", products: "Independent",  journey: "Journey", proof: "Achievements", contact: "Contact" },
+    nav: { work: "Healthcare", products: "Independent work",  journey: "Journey", proof: "Achievements", contact: "Contact" },
     sections: {
       work: {
         title: "Healthcare experience",
@@ -108,8 +108,8 @@ export const site = {
         title: "Independent projects",
         intro: "Projects delivered outside my hospital role, for non-profits, offices, authors and cooperative funds.",
       },
-      journey: { title: "Professional journey", intro: "From customer service to leading digital transformation in medical training." },
-      proof: { title: "Achievements and certifications", intro: "Measurable results, and learning that doesn't stop." },
+      journey: { title: "Professional journey", intro: "I started in customer service and grew into leading digital transformation in medical training." },
+      proof: { title: "Achievements and certifications", intro: "Measurable results I have delivered, and learning I never stop." },
       contact: {
         title: "Got a tiring process? I'll turn it into a system.",
         intro: "I usually reply within one working day. WhatsApp is the fastest way.",
@@ -118,8 +118,8 @@ export const site = {
     strengths: [
       { title: "Needs discovery", body: "I sit with the people who actually run the process and write down what happens before proposing anything." },
       { title: "Analysis and mapping", body: "I break the process into steps, owners and data, and find where time is lost." },
-      { title: "Fast delivery", body: "A working prototype within days, tested on reality, then refined." },
-      { title: "Precision", body: "Every field and alert has a reason, and every document matches the required standard." },
+      { title: "Fast delivery", body: "I deliver a working prototype within days, test it in real use, then refine it." },
+      { title: "Precision", body: "I make sure every field and alert has a reason, and every document meets the required standard." },
     ],
     labels: {
       before: "Before",
@@ -131,7 +131,7 @@ export const site = {
       tools: "Tools",
       sector: "Sector",
       role: "My role",
-      back: "Back to work",
+      back: "Back to projects",
       next: "Next project",
       langSwitch: "العربية",
       call: "Call",
@@ -141,7 +141,7 @@ export const site = {
       certs: "Courses and certifications",
       recommend: "What colleagues say",
       tools_title: "Tools I use every day",
-      viewToggle: "View state",
+      viewToggle: "View",
       employer: "Delivered in my Academic Affairs role, Saudi German Hospital – Aseer",
       independent: "Independent project",
       illustrative: "Preview is illustrative, with mock data.",
@@ -154,14 +154,14 @@ export const site = {
 export const journey = [
   {
     period: { ar: "2018", en: "2018" },
-    title: { ar: "بكالوريوس الخدمات الصحية وإدارة المستشفيات", en: "B.Sc. Health Services & Hospital Management" },
+    title: { ar: "بكالوريوس إدارة خدمات صحية ومستشفيات", en: "Bachelor of Health Services and Hospital Management" },
     place: { ar: "جامعة الملك عبدالعزيز", en: "King Abdulaziz University" },
     body: { ar: "تخرجت بمعدل 4.12 من 5.", en: "Graduated with a GPA of 4.12 / 5." },
   },
   {
     period: { ar: "2021 – 2025", en: "2021 – 2025" },
     title: { ar: "أخصائي خدمة عملاء", en: "Customer Service Specialist" },
-    place: { ar: "آفاق للخدمات البشرية", en: "Afaq Human Resources Services" },
+    place: { ar: "آفاق لخدمات الموارد البشرية", en: "Afaq Human Resources Services" },
     body: {
       ar: "أدرت بيانات العملاء ونظّمت الملفات إلكترونياً، وأعددت التقارير والمتابعة اليومية.",
       en: "Managed client data and electronic files, prepared reports and ran daily follow-ups.",
@@ -173,7 +173,7 @@ export const journey = [
     place: { ar: "جمعية الدعوة والإرشاد بالمجاردة", en: "Al-Majardah Da'wah and Guidance Association" },
     body: {
       ar: "أدرت المنصة الإلكترونية وحسّنت تجربة المستخدم، وبنيت الإجراءات التشغيلية وتابعت الأداء.",
-      en: "Ran the online platform and its user experience, built operating procedures and monitored performance.",
+      en: "Managed the online platform and improved its user experience, built operating procedures and monitored performance.",
     },
   },
   {
@@ -197,11 +197,11 @@ export const journey = [
 export const achievements = [
   {
     figure: { ar: "من 64٪ إلى 77٪", en: "64% → 77%" },
-    label: { ar: "رفع درجة حوكمة الأكاديمية خلال شهرين", en: "Academy governance score, raised in two months" },
+    label: { ar: "أسهمت في رفع درجة حوكمة الأكاديمية خلال شهرين", en: "Helped raise the academy's governance score in two months" },
   },
   {
     figure: { ar: "اعتماد كامل", en: "Full accreditation" },
-    label: { ar: "لبرنامج الإقامة في طب الأعصاب من الهيئة السعودية للتخصصات الصحية", en: "For the Neurology residency program from SCFHS" },
+    label: { ar: "لبرنامج الإقامة في طب الأعصاب من الهيئة السعودية للتخصصات الصحية", en: "For the Neurology residency program from the Saudi Commission for Health Specialties" },
   },
   {
     figure: { ar: "10 قاعات", en: "10 halls" },

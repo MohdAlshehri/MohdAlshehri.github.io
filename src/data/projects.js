@@ -38,7 +38,7 @@ export const projects = [
       en: [
         "Connected all ten halls to one centrally managed digital calendar.",
         "Designed a digital tenant request form that captures every required detail first time.",
-        "Set up automatic email alerts the moment a request is submitted.",
+        "Set up automatic email alerts the moment a request is submitted, so every request gets a fast response.",
         "Made bookings manageable from desktop or the mobile app.",
       ],
     },
@@ -66,7 +66,7 @@ export const projects = [
     },
     need: {
       ar: "متابعة حضور قرابة 150 متدرباً في عدة برامج كانت تعتمد على الورق، والتقارير تتأخر ولا تعكس الإجازات والتدوير.",
-      en: "Tracking attendance for around 150 trainees across several programs relied on paper, and reports were late and ignored rotations and leave.",
+      en: "Tracking attendance for around 150 trainees across several programs relied on paper, and reports were late and didn't reflect leave and rotations.",
     },
     approach: {
       ar: [
@@ -76,7 +76,7 @@ export const projects = [
       ],
       en: [
         "Captured attendance through precise digital forms for each activity.",
-        "Attached each signed sheet and archived it automatically.",
+        "Linked every signed attendance sheet to an organised archive that saves automatically.",
         "Built automatic per-trainee attendance analytics that account for rotations and leave.",
       ],
     },
@@ -97,7 +97,7 @@ export const projects = [
       en: "A live bilingual portal bringing clinical training, residency, life support and CPD into one view.",
     },
     sector: { ar: "إدارة أكاديمية", en: "Academy management" },
-    role: { ar: "تصميم البيانات واللوحات، بناء البوابة بأدوات الذكاء الاصطناعي", en: "Data and dashboard design, built with AI tools" },
+    role: { ar: "تصميم البيانات واللوحات، بناء البوابة بأدوات الذكاء الاصطناعي", en: "Data and dashboard design; built the portal with AI tools" },
     before: {
       ar: ["جداول متفرقة لكل برنامج", "تجميع يدوي للأرقام", "فواتير تُحسب بالآلة", "لا رؤية للإدارة"],
       en: ["Separate sheets per program", "Numbers compiled by hand", "Invoices on a calculator", "No view for management"],
@@ -114,7 +114,7 @@ export const projects = [
       ],
       en: [
         "Designed a unified master data template per section: settings, trainee file, rotation and billing log, financial summary.",
-        "Built separate views for clinical training, residency, life support and CPD.",
+        "Built separate dashboards for clinical training, residency, life support and CPD.",
         "Made the portal update automatically when data changes, with a dedicated partner view.",
       ],
     },
@@ -135,7 +135,7 @@ export const projects = [
       en: "A unified operating template for SCFHS standards that supported the Neurology program accreditation and a higher governance score.",
     },
     sector: { ar: "الحوكمة والاعتماد", en: "Governance and accreditation" },
-    role: { ar: "منسق البرنامج، إعداد الشواهد وتقديمها في الزيارة", en: "Program coordinator, prepared and presented the evidence" },
+    role: { ar: "منسق البرنامج، إعداد الشواهد وتقديمها في الزيارة", en: "Program coordinator; prepared the evidence and presented it during the visit" },
     before: {
       ar: ["معايير في ملف PDF", "شواهد في مجلدات متفرقة", "سؤال: ماذا بقي؟", "قلق قبل الزيارة"],
       en: ["Standards in a PDF", "Evidence in scattered folders", "“What's still missing?”", "Pre-visit stress"],
@@ -160,7 +160,7 @@ export const projects = [
     },
     results: {
       ar: ["اعتماد كامل لبرنامج الأعصاب", "الحوكمة من 64٪ إلى 77٪ خلال شهرين", "اعتماد القالب على مستوى المؤسسة والبرامج", "إشادة فريق تقييم الهيئة والإدارة"],
-      en: ["Full accreditation for the Neurology program", "Governance from 64% to 77% in two months", "Template adopted institution-wide", "Praised by SCFHS surveyors and management"],
+      en: ["Full accreditation for the Neurology program", "Governance from 64% to 77% in two months", "Template adopted at institution and program level", "Praised by SCFHS surveyors and management"],
     },
     tools: ["Google Sheets", "Google Drive", "Notion"],
   },
@@ -213,7 +213,7 @@ export const projects = [
       en: "Digital tracking of the morning report and daily activities of residents, replacing printed sheets.",
     },
     sector: { ar: "التعليم الطبي", en: "Medical education" },
-    role: { ar: "رقمنة الإجراء وتصميم التقرير", en: "Digitised the process and designed the report" },
+    role: { ar: "رقمنة الإجراء وتصميم التقرير", en: "Process digitisation and report design" },
     before: {
       ar: ["كشف يومي مطبوع", "تجميع أسبوعي يدوي", "صعوبة معرفة المتغيب", "لا مؤشرات"],
       en: ["A printed daily sheet", "Manual weekly compilation", "Hard to spot absences", "No indicators"],
@@ -236,7 +236,7 @@ export const projects = [
     },
     results: {
       ar: ["صورة يومية واضحة للبرنامج", "توفير وقت التجميع الأسبوعي", "شواهد جاهزة للاعتماد"],
-      en: ["A clear daily view of the program", "No more weekly compilation", "Evidence ready for accreditation"],
+      en: ["A clear daily view of the program", "Saved the time spent on weekly compilation", "Evidence ready for accreditation"],
     },
     tools: ["Google Forms", "Google Sheets", "Data Studio"],
   },
@@ -298,12 +298,12 @@ export const projects = [
     },
     need: {
       ar: "الجمعيات الأهلية الصغيرة تحتاج نظاماً متكاملاً بسعر مناسب، بدل أدوات متفرقة لا تتحدث مع بعضها.",
-      en: "Small associations need an integrated system at a fair price, instead of disconnected tools.",
+      en: "Small associations need an integrated system at a fair price, instead of disconnected tools that don't talk to each other.",
     },
     approach: {
       ar: [
         "صممت منصة متعددة الجمعيات، لكل جمعية بياناتها المعزولة.",
-        "جعلت تسجيل الجمعية برقم الترخيص مع التحقق منها.",
+        "اعتمدت تسجيل الجمعية برقم ترخيصها مع التحقق منه.",
         "قررت أن البيانات لا تُحذف أبداً، وتبقى للقراءة فقط إذا توقف الحساب.",
       ],
       en: [
@@ -326,13 +326,13 @@ export const projects = [
     title: { ar: "المكتبات الرقمية", en: "Digital libraries" },
     summary: {
       ar: "مكتبة تصفح بأسلوب الكتاب الحقيقي لمؤلفات العلماء والمشايخ والأكاديميين، بلا تكلفة استضافة.",
-      en: "Page-turning online libraries for the works of scholars and academics, with zero hosting cost.",
+      en: "A page-turning online library for the works of scholars, sheikhs and academics, with zero hosting cost.",
     },
     sector: { ar: "نشر رقمي", en: "Digital publishing" },
     role: { ar: "التصميم والبناء والتسليم", en: "Design, build and handover" },
     before: {
       ar: ["كتب PDF في مجلد مشترك", "روابط تضيع في القروبات", "لا واجهة تليق بالمؤلف", "صعوبة الوصول من الجوال"],
-      en: ["PDFs in a shared folder", "Links lost in group chats", "No fitting showcase", "Hard to read on mobile"],
+      en: ["PDFs in a shared folder", "Links lost in group chats", "No showcase worthy of the author", "Hard to read on mobile"],
     },
     need: {
       ar: "المؤلفون ينشرون كتبهم كملفات متفرقة، ولا يوجد مكان واحد أنيق يجمعها ويسهل مشاركته.",
@@ -369,8 +369,8 @@ export const projects = [
     sector: { ar: "قطاع قانوني", en: "Legal sector" },
     role: { ar: "تحليل الاحتياج، تصميم المنظومة، التنفيذ", en: "Needs analysis, system design, delivery" },
     before: {
-      ar: ["أكثر من 100 عقد ورقي", "مواعيد جلسات في الذاكرة", "وكالات تنتهي دون تنبيه", "عرض منافس مكلف ومعقد"],
-      en: ["100+ paper contracts", "Session dates kept in memory", "Powers of attorney expiring unnoticed", "A costly, over-built competing offer"],
+      ar: ["أكثر من 100 عقد ورقي", "مواعيد جلسات في الذاكرة", "وكالات تنتهي دون تنبيه", "ملفات بلا فهرسة"],
+      en: ["100+ paper contracts", "Session dates kept in memory", "Powers of attorney expiring unnoticed", "Unindexed files"],
     },
     need: {
       ar: "مكتب يحتاج تنظيم عقوده وجلساته بأبسط طريقة ممكنة، دون أنظمة معقدة أو تكاليف تشغيل.",
@@ -389,8 +389,8 @@ export const projects = [
       ],
     },
     results: {
-      ar: ["تشغيل بلا تكلفة شهرية", "جاهز للانتقال إلى Workspace", "واجهة واضحة لفريق المكتب"],
-      en: ["Zero monthly running cost", "Ready to move to Workspace", "A clear interface for the office team"],
+      ar: ["تشغيل بلا تكلفة شهرية", "جاهز للانتقال إلى Google Workspace", "واجهة واضحة لفريق المكتب"],
+      en: ["Zero monthly running cost", "Ready to move to Google Workspace", "A clear interface for the office team"],
     },
     tools: ["Google Forms", "Google Sheets", "Google Docs", "Google Calendar"],
   },
@@ -428,7 +428,7 @@ export const projects = [
     },
     results: {
       ar: ["تحليل مكتمل ومعتمد", "نموذج أولي قيد البناء", "صفر تكلفة تشغيل"],
-      en: ["Approved analysis", "Prototype in progress", "Zero running cost"],
+      en: ["Analysis completed and approved", "Prototype in progress", "Zero running cost"],
     },
     tools: ["Google Sheets", "Google Apps Script"],
   },
@@ -450,7 +450,7 @@ export const projects = [
     },
     need: {
       ar: "الجمعيات الصغيرة لا تملك ميزانية أنظمة كبيرة، لكنها تحتاج أدوات منضبطة لإدارة الموظفين والحوكمة.",
-      en: "Small associations can't afford large systems but need disciplined tools for staff and governance.",
+      en: "Small associations can't afford large systems but need reliable tools for staff and governance.",
     },
     approach: {
       ar: [
