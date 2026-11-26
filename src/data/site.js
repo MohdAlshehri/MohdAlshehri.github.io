@@ -14,7 +14,7 @@ export const contact = {
 export const site = {
   ar: {
     name: "محمد الشهري",
-    title: "أخصائي إدارة صحية | التحول الرقمي وأتمتة سير العمل",
+    title: "أخصائي إدارة صحية | التحول الرقمي وأتمتة سير العمل ومتابعة الأداء",
     classification: "مصنّف أخصائي من الهيئة السعودية للتخصصات الصحية",
     location: "عسير، المملكة العربية السعودية",
     metaDescription:
@@ -82,7 +82,7 @@ export const site = {
   },
   en: {
     name: "Mohammed Alshehri",
-    title: "Health Administration Specialist | Digital Transformation & Workflow Automation",
+    title: "Health Administration Specialist | Digital Transformation, Workflow Automation & Performance Monitoring",
     classification: "Classified as Specialist by the Saudi Commission for Health Specialties",
     location: "Aseer, Saudi Arabia",
     metaDescription:
