@@ -395,44 +395,6 @@ export const projects = [
     tools: ["Google Forms", "Google Sheets", "Google Docs", "Google Calendar"],
   },
   {
-    slug: "cooperative-fund",
-    group: "product",
-    mock: "fund",
-    year: "2026",
-    title: { ar: "نظام صندوق تعاوني للقروض الحسنة", en: "Cooperative interest-free loan fund" },
-    summary: {
-      ar: "تطبيق ويب بلا تكلفة تشغيل لإدارة اشتراكات الأعضاء والقروض والسداد في صندوق تعاوني.",
-      en: "A zero-running-cost web app managing member contributions, loans and repayments for a cooperative fund.",
-    },
-    sector: { ar: "صناديق تعاونية", en: "Cooperative funds" },
-    role: { ar: "تحليل الاحتياج وتصميم النموذج الأولي", en: "Needs analysis and prototype design" },
-    before: {
-      ar: ["دفتر اشتراكات", "حوالات تُطابق يدوياً", "أسئلة متكررة عن الرصيد", "شفافية محدودة"],
-      en: ["A contributions notebook", "Transfers matched by hand", "Repeated balance questions", "Limited transparency"],
-    },
-    need: {
-      ar: "صندوق تعاوني يحتاج سجلاً دقيقاً وشفافاً للاشتراكات والقروض، دون اشتراك في برامج مدفوعة.",
-      en: "A cooperative fund needing an accurate, transparent record of contributions and loans, without paid software.",
-    },
-    approach: {
-      ar: [
-        "بدأت بتحليل كامل للأدوار والإجراءات قبل أي بناء.",
-        "اخترت جداول Google قاعدةً للبيانات مع تطبيق ويب فوقها.",
-        "صممت لوحة للعضو تعرض رصيده وأقساطه.",
-      ],
-      en: [
-        "Started with a full analysis of roles and procedures before building.",
-        "Chose Google Sheets as the database with a web app on top.",
-        "Designed a member view showing balance and instalments.",
-      ],
-    },
-    results: {
-      ar: ["تحليل مكتمل ومعتمد", "نموذج أولي قيد البناء", "صفر تكلفة تشغيل"],
-      en: ["Analysis completed and approved", "Prototype in progress", "Zero running cost"],
-    },
-    tools: ["Google Sheets", "Google Apps Script"],
-  },
-  {
     slug: "nonprofit-excel-systems",
     group: "product",
     mock: "excel",
