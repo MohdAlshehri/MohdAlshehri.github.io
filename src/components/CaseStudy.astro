@@ -1,0 +1,102 @@
+---
+// صفحة دراسة الحالة لكل مشروع
+import Layout from "../layouts/Layout.astro";
+import BeforeAfter from "./BeforeAfter.astro";
+import Icon from "./Icon.astro";
+import { site } from "../data/site.js";
+import { projects } from "../data/projects.js";
+import { tx, workUrl, home } from "../data/i18n.js";
+
+const { slug, lang = "ar" } = Astro.props;
+const s = site[lang];
+const l = s.labels;
+const i = projects.findIndex((p) => p.slug === slug);
+const p = projects[i];
+const next = projects[(i + 1) % projects.length];
+const anchor = p.group === "work" ? "#work" : "#products";
+---
+<Layout lang={lang} title={tx(p.title, lang)} description={tx(p.summary, lang)}>
+  <div class="lined">
+    <div class="rail"><div class="fill"></div></div>
+    <article class="inner cs">
+      <a class="back" href={`${home(lang)}${anchor}`}>{l.back}</a>
+
+      <header class="cs-head">
+        <span class="node"></span>
+        <p class="meta">{tx(p.sector, lang)}<span>{p.year}</span></p>
+        <h1>{tx(p.title, lang)}</h1>
+        <p class="sum">{tx(p.summary, lang)}</p>
+      </header>
+
+      <dl class="facts">
+        <div><dt>{l.role}</dt><dd>{tx(p.role, lang)}</dd></div>
+        <div><dt>{l.tools}</dt><dd>{p.tools.map((t) => tx(t, lang)).join(lang === "en" ? ", " : "، ")}</dd></div>
+      </dl>
+
+      <div class="visual"><BeforeAfter project={p} lang={lang} size="lg" /></div>
+
+      <section class="block">
+        <span class="node"></span>
+        <h2>{l.need}</h2>
+        <p class="body">{tx(p.need, lang)}</p>
+      </section>
+
+      <section class="block">
+        <span class="node"></span>
+        <h2>{l.approach}</h2>
+        <ol class="steps">
+          {p.approach[lang].map((a) => <li>{a}</li>)}
+        </ol>
+      </section>
+
+      <section class="block">
+        <span class="node"></span>
+        <h2>{l.results}</h2>
+        <ul class="results">
+          {p.results[lang].map((r) => <li><Icon name="check" size={20} />{r}</li>)}
+        </ul>
+      </section>
+
+      <a class="next" href={workUrl(lang, next.slug)}>
+        <small>{l.next}</small>
+        <span>{tx(next.title, lang)}</span>
+      </a>
+    </article>
+  </div>
+</Layout>
+
+<style>
+  .cs { padding-block: 40px 100px; }
+  .back { display: inline-block; font-size: .95rem; color: var(--slate); text-decoration: none; margin-bottom: 40px; }
+  .back:hover { color: var(--volt); }
+  .cs-head { position: relative; max-width: 50rem; }
+  .node { inset-inline-start: calc(var(--line-x) - var(--gutter) - 8px); }
+  .cs-head .node { top: 3.1em; }
+  .meta { color: var(--volt-deep); font-size: .95rem; display: flex; gap: 12px; margin-bottom: 12px; }
+  .meta span { color: var(--slate); }
+  h1 { font-size: clamp(2.2rem, 5.4vw, 4rem); line-height: 1.15; letter-spacing: -0.015em; }
+  html[lang="en"] h1 { letter-spacing: -0.03em; line-height: 1.05; }
+  .sum { margin-top: 20px; font-size: 1.2rem; max-width: 40rem; }
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 40px 0 0; padding-block: 22px; border-block: 1px solid var(--mist); max-width: 50rem; }
+  dt { font-size: .88rem; color: var(--slate); }
+  dd { margin: 4px 0 0; color: var(--ink); font-weight: 500; }
+  .visual { margin-block: 56px 24px; max-width: 860px; }
+  .block { position: relative; display: grid; grid-template-columns: 200px 1fr; gap: 24px; padding-block: 40px; border-top: 1px solid var(--mist); max-width: 980px; }
+  .block .node { top: 46px; }
+  .block h2 { font-size: 1.4rem; }
+  .body { font-size: 1.15rem; max-width: 40rem; }
+  .steps { margin: 0; padding: 0; list-style: none; counter-reset: s; display: grid; gap: 16px; max-width: 40rem; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 36px 1fr; gap: 12px; font-size: 1.08rem; }
+  .steps li::before { content: counter(s); font-family: var(--f-display); font-weight: 600; color: var(--volt); inline-size: 30px; block-size: 30px; border-radius: 50%; border: 1.5px solid var(--volt); display: grid; place-items: center; font-size: .9rem; }
+  .results { list-style: none; display: grid; gap: 12px; }
+  .results li { display: flex; gap: 10px; align-items: flex-start; font-size: 1.1rem; color: var(--ink); font-weight: 500; }
+  .results :global(svg) { color: var(--volt); flex: none; margin-top: 4px; }
+  .next { display: grid; gap: 4px; margin-top: 40px; padding: 30px 32px; border-radius: 18px; background: var(--ink); color: #fff; text-decoration: none; max-width: 980px; transition: background .2s; }
+  .next:hover { background: var(--volt); }
+  .next small { color: #9fb0cf; } .next:hover small { color: #e6eeff; }
+  .next span { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.3rem, 3vw, 1.9rem); }
+  @media (max-width: 720px) {
+    .block { grid-template-columns: 1fr; gap: 14px; }
+    .facts { grid-template-columns: 1fr; }
+  }
+</style>

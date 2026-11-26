@@ -1,0 +1,123 @@
+/* =========================================================
+   خط التحويل — The Transformation Line
+   الألوان والخطوط الأساسية للموقع كله
+   ========================================================= */
+:root {
+  --paper: #f5f7fa;      /* الخلفية: أبيض بارد */
+  --white: #ffffff;
+  --ink: #0b1e3f;        /* كحلي عميق: العناوين */
+  --ink-2: #22355c;      /* كحلي أفتح: النص */
+  --slate: #5d6d88;      /* رمادي مزرق: النص الثانوي */
+  --mist: #dfe5ef;       /* خطوط وفواصل */
+  --mist-2: #edf1f7;
+  --volt: #2c66ff;       /* الأزرق الكهربائي: الخط واللمسات */
+  --volt-deep: #1847d6;
+  --volt-soft: #e7eeff;
+  --ok: #1aa57a;
+  --warn: #e39b26;
+  --bad: #dc4b4b;
+
+  /* ورق «قبل» */
+  --sheet: #fbf8f0;
+  --pencil: #3f4652;
+  --redpen: #c8423a;
+
+  --f-display: "Alexandria", "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --f-body: "IBM Plex Sans Arabic", system-ui, sans-serif;
+  --f-hand: "Aref Ruqaa", "Caveat", cursive;
+
+  --line-x: 28px;        /* موضع خط التحويل من بداية الصفحة */
+  --gutter: 76px;        /* مسافة المحتوى عن الخط */
+  --max: 1200px;
+  --radius-frame: 14px;
+}
+html[lang="en"] { --f-hand: "Caveat", "Aref Ruqaa", cursive; }
+
+@media (max-width: 760px) {
+  :root { --line-x: 16px; --gutter: 40px; }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: var(--f-body);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="en"] body { line-height: 1.6; }
+
+h1, h2, h3, h4 { font-family: var(--f-display); color: var(--ink); margin: 0; font-weight: 600; line-height: 1.25; }
+p { margin: 0; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+ul { margin: 0; padding: 0; }
+
+:focus-visible { outline: 3px solid var(--volt); outline-offset: 3px; border-radius: 4px; }
+
+.skip { position: absolute; inset-inline-start: -999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 14px; z-index: 100; border-radius: 6px; }
+.skip:focus { inset-inline-start: 8px; }
+
+.wrap { max-width: var(--max); margin-inline: auto; padding-inline: 24px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- الأزرار والروابط ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .6em;
+  padding: .8em 1.35em; border-radius: 999px;
+  font-family: var(--f-display); font-weight: 500; font-size: .98rem;
+  text-decoration: none; border: 1.5px solid var(--ink);
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn-solid { background: var(--ink); color: #fff; }
+.btn-solid:hover { background: var(--volt); border-color: var(--volt); }
+.btn-ghost { color: var(--ink); }
+.btn-ghost:hover { border-color: var(--volt); color: var(--volt); }
+
+.text-link { color: var(--volt-deep); font-family: var(--f-display); font-weight: 500; text-decoration: none; border-bottom: 1.5px solid currentColor; padding-bottom: 1px; }
+.text-link:hover { color: var(--ink); }
+
+/* ---------- الخط الممتد في الصفحة ---------- */
+.lined { position: relative; max-width: var(--max); margin-inline: auto; padding-inline: 0 24px; }
+.lined > .rail {
+  position: absolute; top: 0; bottom: 0;
+  inset-inline-start: var(--line-x);
+  width: 2px; background: var(--mist);
+  pointer-events: none;
+}
+.lined > .rail > .fill {
+  position: absolute; inset: 0;
+  background: var(--volt);
+  transform-origin: top; transform: scaleY(var(--p, 0));
+}
+.lined > .inner { padding-inline-start: var(--gutter); }
+
+/* عقدة على الخط */
+.node {
+  position: absolute;
+  inset-inline-start: calc(var(--line-x) - 8px);
+  width: 18px; height: 18px; border-radius: 50%;
+  background: var(--paper); border: 2px solid var(--mist);
+  transition: border-color .4s, background .4s, box-shadow .4s;
+  z-index: 2;
+}
+.node.on { border-color: var(--volt); background: var(--volt); box-shadow: 0 0 0 6px var(--volt-soft); }
+
+/* ---------- عناوين الأقسام ---------- */
+.section { position: relative; padding-block: clamp(72px, 10vw, 132px) 0; }
+.section-head { position: relative; max-width: 46rem; margin-bottom: clamp(36px, 5vw, 60px); }
+.section-head .node { top: .55em; inset-inline-start: calc(var(--line-x) - var(--gutter) - 8px); }
+.section-head h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); letter-spacing: -0.01em; }
+html[lang="en"] .section-head h2 { letter-spacing: -0.025em; }
+.section-head p { margin-top: 14px; color: var(--slate); font-size: 1.1rem; max-width: 38rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lined > .rail > .fill { transform: none; }
+  .node { transition: none; }
+}

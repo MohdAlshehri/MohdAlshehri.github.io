@@ -1,0 +1,79 @@
+---
+// إطار «قبل / بعد»: ورقة مكتوبة باليد تتحول إلى نظام
+import Mock from "./Mock.astro";
+import { site } from "../data/site.js";
+import { tx } from "../data/i18n.js";
+const { project, lang = "ar", size = "md" } = Astro.props;
+const l = site[lang].labels;
+const items = project.before[lang];
+const title = tx(project.title, lang);
+---
+<figure class={`ba ${size}`} data-ba data-view="after">
+  <div class="stage">
+    <div class="sheet" aria-hidden="true">
+      <p class="sh-title">{title}</p>
+      <ul>
+        {items.map((it, i) => <li class={i === 2 ? "circled" : i === 3 ? "struck" : ""}>{it}</li>)}
+      </ul>
+      <svg class="scrawl" viewBox="0 0 120 40"><path d="M4 30c10-18 18-22 24-10s10 14 18-2 14-18 20-4 12 10 20-6 14-10 30-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span class="clip"></span>
+    </div>
+    <div class="system">
+      <Mock type={project.mock} lang={lang} title={title} />
+    </div>
+  </div>
+  <figcaption>
+    <div class="toggle" role="group" aria-label={l.viewToggle}>
+      <button type="button" data-state="before" aria-pressed="false">{l.before}</button>
+      <button type="button" data-state="after" aria-pressed="true">{l.after}</button>
+    </div>
+    <span class="note">{l.illustrative}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .ba { margin: 0; }
+  .stage { position: relative; aspect-ratio: 16 / 11; container-type: inline-size; }
+  .sm .stage { aspect-ratio: 4 / 3; }
+  .lg .stage { aspect-ratio: 16 / 10; }
+  .sheet, .system { position: absolute; inset: 0; transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.2,1), filter .55s; }
+
+  .sheet {
+    background:
+      repeating-linear-gradient(to bottom, transparent 0 calc(var(--lh) - 1px), #e4dccb calc(var(--lh) - 1px) var(--lh)) 0 calc(var(--lh) * 1.9) / 100% 100% no-repeat,
+      var(--sheet);
+    --lh: clamp(30px, 6.2cqi, 50px);
+    border-radius: 4px; padding: 22px 30px; color: var(--pencil);
+    box-shadow: 0 1px 0 #e9e1cf, 0 22px 40px -26px rgba(60,45,20,.45);
+    transform: rotate(-1.6deg); font-family: var(--f-hand); overflow: hidden;
+  }
+  .sh-title { font-size: clamp(1.4rem, 4.4cqi, 2.4rem); line-height: 1.3; color: #2b2f36; margin-bottom: calc(var(--lh) * .3); }
+  .sheet ul { list-style: none; display: grid; gap: 0; font-size: clamp(1.25rem, 3.7cqi, 2rem); line-height: var(--lh); }
+  .sheet li::before { content: "– "; }
+  .sheet li.circled { justify-self: start; position: relative; }
+  .sheet li.circled::after { content: ""; position: absolute; inset: 2px -12px 0 -12px; border: 2px solid var(--redpen); border-radius: 50% 46% 52% 44%; transform: rotate(-3deg); }
+  .sheet li.struck { text-decoration: line-through; text-decoration-color: var(--redpen); text-decoration-thickness: 2px; }
+  .scrawl { position: absolute; inline-size: 120px; inset-block-end: 22px; inset-inline-end: 28px; color: var(--redpen); opacity: .8; }
+  .clip { position: absolute; top: -6px; inset-inline-start: 46%; inline-size: 54px; block-size: 18px; background: rgba(255,255,255,.65); border: 1px solid #ddd3bd; transform: rotate(3deg); }
+  html[lang="en"] .sh-title { font-size: clamp(1.55rem, 4.8cqi, 2.6rem); }
+  html[lang="en"] .sheet ul { font-size: clamp(1.4rem, 4cqi, 2.2rem); }
+
+  .system { z-index: 1; }
+  [data-view="after"] .sheet { opacity: .0; transform: rotate(-4deg) translate(-6%, 4%) scale(.94); filter: blur(2px); }
+  [data-view="before"] .system { opacity: 0; transform: translateY(8%) scale(.96); pointer-events: none; }
+  [data-view="before"] .sheet { z-index: 2; }
+
+  figcaption { display: flex; align-items: center; gap: 14px; margin-top: 16px; flex-wrap: wrap; }
+  .toggle { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--white); border: 1px solid var(--mist); }
+  .toggle button { font: 500 .9rem var(--f-display); border: 0; background: transparent; color: var(--slate); padding: 6px 16px; border-radius: 999px; cursor: pointer; }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .toggle button[data-state="before"][aria-pressed="true"] { background: var(--sheet); color: var(--pencil); box-shadow: inset 0 0 0 1px #e4dccb; }
+  .note { font-size: .82rem; color: var(--slate); }
+
+  @media (max-width: 520px) {
+    .stage, .sm .stage, .lg .stage { aspect-ratio: auto; min-block-size: 300px; }
+    .system { position: relative; }
+    .sheet { padding: 18px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .sheet, .system { transition: none; } }
+</style>

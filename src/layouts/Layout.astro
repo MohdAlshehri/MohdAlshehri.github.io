@@ -1,0 +1,134 @@
+---
+import "@fontsource/alexandria/arabic-500.css";
+import "@fontsource/alexandria/arabic-600.css";
+import "@fontsource/alexandria/arabic-700.css";
+import "@fontsource/alexandria/latin-500.css";
+import "@fontsource/alexandria/latin-600.css";
+import "@fontsource/alexandria/latin-700.css";
+import "@fontsource/ibm-plex-sans-arabic/arabic-400.css";
+import "@fontsource/ibm-plex-sans-arabic/arabic-500.css";
+import "@fontsource/ibm-plex-sans-arabic/latin-400.css";
+import "@fontsource/ibm-plex-sans-arabic/latin-500.css";
+import "@fontsource/aref-ruqaa/arabic-400.css";
+import "@fontsource/caveat/latin-500.css";
+import "../styles/global.css";
+import { site, contact } from "../data/site.js";
+import { home, swapPath } from "../data/i18n.js";
+
+const { lang = "ar", title, description, onHome = false } = Astro.props;
+const s = site[lang];
+const dir = lang === "en" ? "ltr" : "rtl";
+const pageTitle = title ? `${title} | ${s.name}` : `${s.name} | ${s.title}`;
+const desc = description ?? s.metaDescription;
+const path = Astro.url.pathname;
+const altPath = swapPath(lang, path);
+const base = onHome ? "" : home(lang);
+const year = new Date().getFullYear();
+---
+<!doctype html>
+<html lang={lang} dir={dir}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <meta name="theme-color" content="#0b1e3f" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/og.jpg" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" hreflang={lang === "en" ? "ar" : "en"} href={altPath} />
+  </head>
+  <body>
+    <a class="skip" href="#main">{lang === "en" ? "Skip to content" : "تخطَّ إلى المحتوى"}</a>
+    <header class="top">
+      <div class="wrap top-in">
+        <a class="mark" href={home(lang)} aria-label={s.name}>
+          <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true">
+            <path d="M4 22c3-6 4-12 7-12s2 8 5 8 3-10 6-10" fill="none" stroke="#0b1e3f" stroke-width="2.2" stroke-linecap="round"/>
+            <circle cx="24" cy="8" r="3.4" fill="#2c66ff"/>
+          </svg>
+          <span>{s.name}</span>
+        </a>
+        <nav aria-label={lang === "en" ? "Main" : "الرئيسية"}>
+          <ul>
+            <li><a href={`${base}#work`}>{s.nav.work}</a></li>
+            <li><a href={`${base}#products`}>{s.nav.products}</a></li>
+            <li><a href={`${base}#journey`}>{s.nav.journey}</a></li>
+            <li><a href={`${base}#proof`}>{s.nav.proof}</a></li>
+            <li><a href={`${base}#contact`} class="nav-cta">{s.nav.contact}</a></li>
+          </ul>
+        </nav>
+        <a class="lang" href={altPath} hreflang={lang === "en" ? "ar" : "en"} lang={lang === "en" ? "ar" : "en"}>{s.labels.langSwitch}</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="foot">
+      <div class="wrap foot-in">
+        <p>© {year} {s.name}</p>
+        <p>{s.credit} - {lang === "en" ? "Contact:" : "للتواصل:"} <a href={`tel:${contact.phone}`} dir="ltr">0564824329</a></p>
+      </div>
+    </footer>
+
+    <script>
+      // يملأ خط التحويل مع التمرير ويضيء العُقد عند الوصول إليها
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const rails = [...document.querySelectorAll(".lined")];
+      const nodes = [...document.querySelectorAll(".node")];
+      let ticking = false;
+      function update() {
+        ticking = false;
+        const mark = innerHeight * 0.62;
+        for (const el of rails) {
+          const r = el.getBoundingClientRect();
+          const p = reduce ? 1 : Math.min(1, Math.max(0, (mark - r.top) / r.height));
+          el.style.setProperty("--p", p.toFixed(4));
+        }
+        for (const n of nodes) {
+          const top = n.getBoundingClientRect().top;
+          n.classList.toggle("on", reduce || top < mark);
+        }
+      }
+      addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+      addEventListener("resize", update);
+      update();
+
+      // أزرار قبل / بعد
+      document.querySelectorAll("[data-ba]").forEach((box) => {
+        const btns = box.querySelectorAll("[data-state]");
+        btns.forEach((b) =>
+          b.addEventListener("click", () => {
+            box.dataset.view = b.dataset.state;
+            btns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+          })
+        );
+      });
+    </script>
+
+    <style>
+      .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--mist); }
+      .top-in { display: flex; align-items: center; gap: 24px; height: 66px; }
+      .mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--f-display); font-weight: 600; color: var(--ink); font-size: 1.02rem; }
+      nav { margin-inline-start: auto; }
+      nav ul { display: flex; gap: 4px; list-style: none; }
+      nav a { display: block; padding: 8px 12px; border-radius: 8px; text-decoration: none; font-size: .95rem; color: var(--ink-2); }
+      nav a:hover { color: var(--volt); }
+      nav .nav-cta { background: var(--ink); color: #fff; padding-inline: 16px; border-radius: 999px; }
+      nav .nav-cta:hover { background: var(--volt); color: #fff; }
+      .lang { font-family: var(--f-display); font-size: .92rem; text-decoration: none; color: var(--ink); border: 1.5px solid var(--mist); padding: 6px 12px; border-radius: 999px; }
+      .lang:hover { border-color: var(--volt); color: var(--volt); }
+      @media (max-width: 860px) {
+        nav li:not(:last-child) { display: none; }
+        .mark span { font-size: .95rem; }
+      }
+      .foot { margin-top: 0; background: var(--ink); color: #aab6cc; font-size: .9rem; }
+      .foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 22px; border-top: 1px solid #22355c; }
+      .foot a { color: #fff; text-decoration: none; }
+    </style>
+  </body>
+</html>
