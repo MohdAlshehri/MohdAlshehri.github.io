@@ -30,16 +30,16 @@ export const projects = [
     },
     approach: {
       ar: [
-        "ربط القاعات العشر بتقويم رقمي موحد يُدار مركزياً.",
-        "تصميم نموذج رقمي لطلبات المستأجرين يجمع كل البيانات المطلوبة من أول مرة.",
-        "إشعارات بريدية تلقائية فور تسجيل أي طلب لضمان سرعة الاستجابة.",
-        "إمكانية الإدارة من الجهاز المكتبي أو تطبيق الجوال.",
+        "ربطت القاعات العشر بتقويم رقمي موحد يُدار مركزياً.",
+        "صممت نموذجاً رقمياً لطلبات المستأجرين يجمع كل البيانات المطلوبة من أول مرة.",
+        "فعّلت إشعارات بريدية تلقائية فور تسجيل أي طلب لضمان سرعة الاستجابة.",
+        "جعلت إدارة الحجوزات ممكنة من الجهاز المكتبي أو تطبيق الجوال.",
       ],
       en: [
         "Connected all ten halls to one centrally managed digital calendar.",
         "Designed a digital tenant request form that captures every required detail first time.",
-        "Automatic email alerts the moment a request is submitted.",
-        "Manageable from desktop or the mobile app.",
+        "Set up automatic email alerts the moment a request is submitted.",
+        "Made bookings manageable from desktop or the mobile app.",
       ],
     },
     results: {
@@ -70,21 +70,21 @@ export const projects = [
     },
     approach: {
       ar: [
-        "رصد الحضور عبر نماذج رقمية دقيقة لكل نشاط.",
-        "إرفاق ورقة التحضير الموقعة وحفظها آلياً في أرشيف منظم.",
-        "تحليلات حضور تلقائية لكل متدرب تراعي التدوير والإجازات.",
+        "رصدت الحضور عبر نماذج رقمية دقيقة لكل نشاط.",
+        "ربطت كل ورقة تحضير موقعة بأرشيف منظم يُحفظ آلياً.",
+        "بنيت تحليلات حضور تلقائية لكل متدرب تراعي التدوير والإجازات.",
       ],
       en: [
         "Captured attendance through precise digital forms for each activity.",
         "Attached each signed sheet and archived it automatically.",
-        "Automatic per-trainee attendance analytics that account for rotations and leave.",
+        "Built automatic per-trainee attendance analytics that account for rotations and leave.",
       ],
     },
     results: {
       ar: ["تقارير وإحصاءات فورية", "توثيق مزدوج رقمي وورقي", "متابعة أسهل للتقييم الدوري"],
       en: ["Instant reports and statistics", "Dual digital and paper record", "Easier periodic evaluation"],
     },
-    tools: ["Google Forms", "Google Drive", "Google Sheets", "Looker Studio"],
+    tools: ["Google Forms", "Google Drive", "Google Sheets", "Data Studio"],
   },
   {
     slug: "academy-statistics-portal",
@@ -108,14 +108,14 @@ export const projects = [
     },
     approach: {
       ar: [
-        "قالب بيانات رئيسي موحد لكل قسم: إعدادات، ملف المتدربين، سجل التدوير والفوترة، الملخص المالي.",
-        "لوحات منفصلة للتدريب السريري والإقامة ودعم الحياة والتعليم المستمر.",
-        "تحديث تلقائي كلما تغيّرت البيانات، وعرض خاص للجهات الشريكة.",
+        "صممت قالب بيانات رئيسياً موحداً لكل قسم: إعدادات، ملف المتدربين، سجل التدوير والفوترة، الملخص المالي.",
+        "بنيت لوحات منفصلة للتدريب السريري والإقامة ودعم الحياة والتعليم المستمر.",
+        "جعلت البوابة تتحدث تلقائياً كلما تغيّرت البيانات، مع عرض خاص للجهات الشريكة.",
       ],
       en: [
-        "A unified master data template per section: settings, trainee file, rotation and billing log, financial summary.",
-        "Separate views for clinical training, residency, life support and CPD.",
-        "Updates automatically when data changes, with a dedicated partner view.",
+        "Designed a unified master data template per section: settings, trainee file, rotation and billing log, financial summary.",
+        "Built separate views for clinical training, residency, life support and CPD.",
+        "Made the portal update automatically when data changes, with a dedicated partner view.",
       ],
     },
     results: {
@@ -146,16 +146,16 @@ export const projects = [
     },
     approach: {
       ar: [
-        "قالب يربط كل معيار بشواهده وحالته ومسؤوله.",
-        "أتمتة حوكمة بيانات المدربين: التصنيف المهني، عقود العمل، الشهادات.",
-        "لوحة جاهزية لمراجعة حوكمة الربع الثالث ومعايير ATA1 وATA2.",
-        "أرشيف منظم للسياسات والقرارات ومحاضر الاجتماعات لكل برنامج.",
+        "بنيت قالباً يربط كل معيار بشواهده وحالته ومسؤوله.",
+        "أتمتّ حوكمة بيانات المدربين: التصنيف المهني، عقود العمل، الشهادات.",
+        "أعددت لوحة جاهزية لمراجعة حوكمة الربع الثالث ومعايير ATA1 وATA2.",
+        "نظّمت أرشيفاً للسياسات والقرارات ومحاضر الاجتماعات لكل برنامج.",
       ],
       en: [
-        "A template linking each standard to its evidence, status and owner.",
-        "Automated governance of trainer records: classification, contracts, certificates.",
-        "A readiness board for the Q3 governance review and ATA1 / ATA2 standards.",
-        "An organised archive of policies, decisions and minutes for every program.",
+        "Built a template linking each standard to its evidence, status and owner.",
+        "Automated the governance of trainer records: classification, contracts, certificates.",
+        "Prepared a readiness board for the Q3 governance review and ATA1 / ATA2 standards.",
+        "Organised an archive of policies, decisions and minutes for every program.",
       ],
     },
     results: {
@@ -186,14 +186,14 @@ export const projects = [
     },
     approach: {
       ar: [
-        "ملف رقمي موحد لكل متدرب: البيانات، المرفقات، نتائج الاختبارات الشهرية.",
-        "ترميز لوني تلقائي: أخضر ساري، أصفر يقترب، أحمر منتهٍ.",
-        "نفس المنطق لملفات المدربين وتصنيفاتهم وعقودهم.",
+        "أنشأت ملفاً رقمياً موحداً لكل متدرب: البيانات، المرفقات، نتائج الاختبارات الشهرية.",
+        "فعّلت ترميزاً لونياً تلقائياً: أخضر ساري، أصفر يقترب، أحمر منتهٍ.",
+        "طبّقت المنطق نفسه على ملفات المدربين وتصنيفاتهم وعقودهم.",
       ],
       en: [
-        "One digital file per trainee: details, attachments and monthly exam results.",
-        "Automatic colour coding: green valid, amber approaching, red expired.",
-        "The same logic for trainer files, classifications and contracts.",
+        "Created one digital file per trainee: details, attachments and monthly exam results.",
+        "Set up automatic colour coding: green valid, amber approaching, red expired.",
+        "Applied the same logic to trainer files, classifications and contracts.",
       ],
     },
     results: {
@@ -224,21 +224,21 @@ export const projects = [
     },
     approach: {
       ar: [
-        "تسجيل يومي سريع من الجوال لكل جلسة: المقدّم، الحالة، الحضور.",
-        "ملخص تلقائي يومي وأسبوعي لكل برنامج.",
-        "مؤشرات مشاركة لكل طبيب تُستخدم في التقييم.",
+        "صممت تسجيلاً يومياً سريعاً من الجوال لكل جلسة: المقدّم، الحالة، الحضور.",
+        "جهّزت ملخصاً تلقائياً يومياً وأسبوعياً لكل برنامج.",
+        "أضفت مؤشرات مشاركة لكل طبيب تُستخدم في التقييم.",
       ],
       en: [
-        "Quick daily logging from mobile for each session: presenter, case, attendance.",
-        "Automatic daily and weekly summary per program.",
-        "Participation indicators per doctor, used in evaluation.",
+        "Designed quick daily logging from mobile for each session: presenter, case, attendance.",
+        "Set up an automatic daily and weekly summary per program.",
+        "Added participation indicators per doctor, used in evaluation.",
       ],
     },
     results: {
       ar: ["صورة يومية واضحة للبرنامج", "توفير وقت التجميع الأسبوعي", "شواهد جاهزة للاعتماد"],
       en: ["A clear daily view of the program", "No more weekly compilation", "Evidence ready for accreditation"],
     },
-    tools: ["Google Forms", "Google Sheets", "Looker Studio"],
+    tools: ["Google Forms", "Google Sheets", "Data Studio"],
   },
   {
     slug: "academy-assistant",
@@ -262,14 +262,14 @@ export const projects = [
     },
     approach: {
       ar: [
-        "تجميع السياسات والإجراءات والنماذج في قاعدة معرفة منظمة.",
-        "مساعد يجيب بالعربية والإنجليزية ويشير إلى المصدر.",
-        "توجيه السؤال للموظف المختص عندما لا تكفي الإجابة.",
+        "جمعت السياسات والإجراءات والنماذج في قاعدة معرفة منظمة.",
+        "جهّزت مساعداً يجيب بالعربية والإنجليزية ويشير إلى المصدر.",
+        "جعلته يحوّل السؤال للموظف المختص عندما لا تكفي الإجابة.",
       ],
       en: [
         "Compiled policies, procedures and forms into an organised knowledge base.",
-        "An assistant that answers in Arabic and English and cites its source.",
-        "Hands the question to the right staff member when an answer isn't enough.",
+        "Prepared an assistant that answers in Arabic and English and cites its source.",
+        "Made it hand the question to the right staff member when an answer isn't enough.",
       ],
     },
     results: {
@@ -287,11 +287,11 @@ export const projects = [
     year: "2026",
     title: { ar: "واثق — نظام تشغيل الجمعيات", en: "Wathiq — an operating system for non-profits" },
     summary: {
-      ar: "منصة اشتراك سحابية تدير بها الجمعيات الأهلية عملياتها وحوكمتها ومؤشراتها في مكان واحد.",
-      en: "A cloud subscription platform where non-profit associations run their operations, governance and KPIs in one place.",
+      ar: "منصة سحابية تدير بها الجمعيات الأهلية عملياتها وحوكمتها ومؤشراتها في مكان واحد.",
+      en: "A cloud platform where non-profit associations run their operations, governance and KPIs in one place.",
     },
     sector: { ar: "القطاع غير الربحي", en: "Non-profit sector" },
-    role: { ar: "صاحب المنتج: التحليل، النموذج الأولي، قرارات النطاق", en: "Product owner: analysis, prototype, scope decisions" },
+    role: { ar: "التحليل، النموذج الأولي، قرارات النطاق", en: "Analysis, prototype, scope decisions" },
     before: {
       ar: ["ملفات إكسل لكل قسم", "حوكمة على الورق", "تقارير مجلس متأخرة", "كل جمعية تبدأ من الصفر"],
       en: ["An Excel file per department", "Governance on paper", "Late board reports", "Every association starts from zero"],
@@ -302,14 +302,14 @@ export const projects = [
     },
     approach: {
       ar: [
-        "منصة متعددة الجمعيات، لكل جمعية بياناتها المعزولة.",
-        "تسجيل بالترخيص وتجربة مجانية 15 يوماً.",
-        "عند انتهاء الاشتراك تصبح البيانات للقراءة فقط ولا تُحذف أبداً.",
+        "صممت منصة متعددة الجمعيات، لكل جمعية بياناتها المعزولة.",
+        "جعلت تسجيل الجمعية برقم الترخيص مع التحقق منها.",
+        "قررت أن البيانات لا تُحذف أبداً، وتبقى للقراءة فقط إذا توقف الحساب.",
       ],
       en: [
-        "A multi-tenant platform with isolated data per association.",
-        "Sign-up with licence number and a 15-day free trial.",
-        "When a subscription ends, data becomes read-only and is never deleted.",
+        "Designed a multi-tenant platform with isolated data per association.",
+        "Set up registration by licence number, with verification.",
+        "Decided data is never deleted: it stays read-only if an account is paused.",
       ],
     },
     results: {
@@ -328,8 +328,8 @@ export const projects = [
       ar: "مكتبة تصفح بأسلوب الكتاب الحقيقي لمؤلفات العلماء والمشايخ والأكاديميين، بلا تكلفة استضافة.",
       en: "Page-turning online libraries for the works of scholars and academics, with zero hosting cost.",
     },
-    sector: { ar: "منتج رقمي", en: "Digital product" },
-    role: { ar: "صاحب الخدمة: التصميم والبناء والتسليم", en: "Service owner: design, build and handover" },
+    sector: { ar: "نشر رقمي", en: "Digital publishing" },
+    role: { ar: "التصميم والبناء والتسليم", en: "Design, build and handover" },
     before: {
       ar: ["كتب PDF في مجلد مشترك", "روابط تضيع في القروبات", "لا واجهة تليق بالمؤلف", "صعوبة الوصول من الجوال"],
       en: ["PDFs in a shared folder", "Links lost in group chats", "No fitting showcase", "Hard to read on mobile"],
@@ -340,19 +340,19 @@ export const projects = [
     },
     approach: {
       ar: [
-        "موقع مكتبة ثابت بتصفح يشبه الكتاب الورقي.",
-        "رفع الغلاف والكتاب بسهولة لإضافة إصدارات جديدة.",
-        "تسليم كامل للعميل على حسابه دون اشتراكات شهرية.",
+        "بنيت موقع مكتبة بتصفح يشبه الكتاب الورقي.",
+        "سهّلت رفع الغلاف والكتاب لإضافة إصدارات جديدة.",
+        "سلّمت المكتبة كاملة لصاحبها على حسابه دون تكاليف شهرية.",
       ],
       en: [
-        "A static library site with book-like page turning.",
-        "Simple cover and book upload for new titles.",
-        "Full handover to the client's own account with no monthly fees.",
+        "Built a library site with book-like page turning.",
+        "Made cover and book upload simple for new titles.",
+        "Handed the library over to its owner's account with no monthly costs.",
       ],
     },
     results: {
-      ar: ["أول مكتبة: 36 كتاباً", "طلب متزايد على الخدمة", "تحديثات شهرية للعملاء"],
-      en: ["First library: 36 books", "Growing demand for the service", "Monthly updates for clients"],
+      ar: ["أول مكتبة: 36 كتاباً", "تكرار التجربة لمؤلفين آخرين", "إضافة إصدارات جديدة بشكل دوري"],
+      en: ["First library: 36 books", "Repeated for other authors", "New titles added regularly"],
     },
     tools: ["GitHub Pages", { ar: "أدوات الذكاء الاصطناعي", en: "AI tools" }],
   },
@@ -378,14 +378,14 @@ export const projects = [
     },
     approach: {
       ar: [
-        "نماذج إدخال للعقود والوكالات، وقاعدة بيانات في جداول Google.",
-        "توليد المستندات تلقائياً من قوالب معتمدة.",
-        "مزامنة الجلسات مع التقويم وتنبيهات بالبريد.",
+        "صممت نماذج إدخال للعقود والوكالات، وقاعدة بيانات في جداول Google.",
+        "أتمتّ توليد المستندات من قوالب معتمدة.",
+        "ربطت الجلسات بالتقويم مع تنبيهات بالبريد.",
       ],
       en: [
-        "Entry forms for contracts and powers of attorney, with Google Sheets as the database.",
-        "Documents generated automatically from approved templates.",
-        "Sessions synced to the calendar with email reminders.",
+        "Designed entry forms for contracts and powers of attorney, with Google Sheets as the database.",
+        "Automated document generation from approved templates.",
+        "Synced sessions to the calendar with email reminders.",
       ],
     },
     results: {
@@ -416,14 +416,14 @@ export const projects = [
     },
     approach: {
       ar: [
-        "مرحلة تحليل كاملة للأدوار والإجراءات قبل أي بناء.",
-        "قاعدة بيانات في جداول Google وتطبيق ويب فوقها.",
-        "لوحة للعضو تعرض رصيده وأقساطه.",
+        "بدأت بتحليل كامل للأدوار والإجراءات قبل أي بناء.",
+        "اخترت جداول Google قاعدةً للبيانات مع تطبيق ويب فوقها.",
+        "صممت لوحة للعضو تعرض رصيده وأقساطه.",
       ],
       en: [
-        "A full analysis phase of roles and procedures before building.",
-        "Google Sheets as the database with a web app on top.",
-        "A member view showing balance and instalments.",
+        "Started with a full analysis of roles and procedures before building.",
+        "Chose Google Sheets as the database with a web app on top.",
+        "Designed a member view showing balance and instalments.",
       ],
     },
     results: {
@@ -443,7 +443,7 @@ export const projects = [
       en: "Four ready-made systems: governance dashboard, attendance and leave, HR, and payroll with end-of-service.",
     },
     sector: { ar: "القطاع غير الربحي", en: "Non-profit sector" },
-    role: { ar: "تصميم وبيع عبر متجر إلكتروني", en: "Designed and sold through an online store" },
+    role: { ar: "التحليل والتصميم والتنفيذ", en: "Analysis, design and delivery" },
     before: {
       ar: ["حسابات رواتب يدوية", "إجازات في رسائل", "مؤشرات حوكمة غير واضحة", "لا قوالب موحدة"],
       en: ["Payroll by hand", "Leave requests in messages", "Unclear governance indicators", "No standard templates"],
@@ -454,21 +454,21 @@ export const projects = [
     },
     approach: {
       ar: [
-        "أنظمة إكسل جاهزة للاستخدام بلا تدريب طويل.",
-        "معادلات محمية ولوحات ملخصة تلقائية.",
-        "بيع وتوزيع عبر متجر إلكتروني.",
+        "صممت أنظمة إكسل جاهزة للاستخدام بلا تدريب طويل.",
+        "حميت المعادلات وأضفت لوحات ملخصة تلقائية.",
+        "وحّدت القوالب لتصلح لأكثر من جهة.",
       ],
       en: [
-        "Ready-to-use Excel systems with no lengthy training.",
-        "Protected formulas and automatic summary dashboards.",
-        "Sold and distributed through an online store.",
+        "Designed ready-to-use Excel systems with no lengthy training.",
+        "Protected the formulas and added automatic summary dashboards.",
+        "Standardised the templates to work across organisations.",
       ],
     },
     results: {
-      ar: ["أربعة منتجات منشورة", "مستخدمة في جمعيات فعلية", "أساس لمنصة واثق"],
-      en: ["Four published products", "In use by real associations", "The foundation for Wathiq"],
+      ar: ["أربعة أنظمة جاهزة", "مستخدمة في جمعيات فعلية", "أساس لمنصة واثق"],
+      en: ["Four ready systems", "In use by real associations", "The foundation for Wathiq"],
     },
-    tools: ["Microsoft Excel", { ar: "متجر سلة", en: "Salla store" }],
+    tools: ["Microsoft Excel"],
   },
 ];
 

@@ -21,7 +21,7 @@ export const site = {
       "محمد الشهري — أخصائي إدارة صحية يحوّل الإجراءات الورقية في المستشفيات والأكاديميات والجمعيات إلى أنظمة رقمية تعمل.",
     heroLead: "أحوّل الإجراءات الورقية إلى أنظمة رقمية تعمل.",
     heroBody:
-      "أبدأ من الاحتياج الحقيقي في الميدان: أحلّل الإجراء، أرسم مساره، ثم أبني له نظاماً بسيطاً يستخدمه الفريق من أول يوم. أعمل في التشغيل الصحي والتدريب الطبي، وأصمم منتجات رقمية للجمعيات والمكاتب والأفراد.",
+      "أبدأ من الاحتياج الحقيقي في الميدان: أحلّل الإجراء، أرسم مساره، ثم أبني له نظاماً بسيطاً يستخدمه الفريق من أول يوم. أعمل في التشغيل الصحي والتدريب الطبي، وأنفّذ مشاريع رقمية مستقلة للجمعيات والمكاتب والأفراد.",
     heroCtaWork: "شاهد الأعمال",
     heroCtaContact: "تواصل معي",
     focus: [
@@ -30,20 +30,20 @@ export const site = {
       "ابتكار المنتجات الرقمية",
       "أتمتة سير العمل",
     ],
-    nav: { work: "الأعمال", products: "المنتجات", journey: "المسيرة", proof: "الإنجازات", contact: "تواصل" },
+    nav: { work: "القطاع الصحي", products: "مشاريع مستقلة", journey: "المسيرة", proof: "الإنجازات", contact: "تواصل" },
     sections: {
       work: {
-        title: "مشاريع مختارة",
-        intro: "إجراءات حقيقية في أكاديمية طبية، كانت ورقاً وجداول متفرقة، وصارت أنظمة. اضغط «قبل» لترى من أين بدأ كل مشروع.",
+        title: "خبرة في القطاع الصحي",
+        intro: "مشاريع نفّذتها ضمن عملي في الشؤون الأكاديمية بالمستشفى السعودي الألماني – عسير: إجراءات كانت ورقاً وجداول متفرقة، وصارت أنظمة. اضغط «قبل» لترى من أين بدأ كل مشروع.",
       },
       products: {
-        title: "منتجات رقمية وتجارب",
-        intro: "أفكار تحولت إلى منتجات لعملاء خارج المستشفى: جمعيات، مكاتب، مؤلفون، وصناديق تعاونية.",
+        title: "مشاريع مستقلة",
+        intro: "مشاريع نفّذتها خارج نطاق عملي في المستشفى، لجمعيات ومكاتب ومؤلفين وصناديق تعاونية.",
       },
-      journey: { title: "المسيرة المهنية", intro: "من خدمة العملاء إلى قيادة التحول الرقمي في التدريب الطبي." },
-      proof: { title: "إنجازات وشهادات", intro: "نتائج يمكن قياسها، وتعلّم لا يتوقف." },
+      journey: { title: "المسيرة المهنية", intro: "بدأت من خدمة العملاء، ووصلت إلى قيادة التحول الرقمي في التدريب الطبي." },
+      proof: { title: "إنجازات وشهادات", intro: "نتائج حققتها ويمكن قياسها، وتعلّم لا أتوقف عنه." },
       contact: {
-        title: "عندك إجراء متعب؟ خلّنا نحوّله لنظام.",
+        title: "عندك إجراء متعب؟ أحوّله لك إلى نظام.",
         intro: "أرد عادة خلال يوم عمل. أسرع طريقة هي واتساب.",
       },
     },
@@ -74,6 +74,8 @@ export const site = {
       recommend: "قالوا عن عملي",
       tools_title: "أدوات أعمل بها يومياً",
       viewToggle: "عرض الحالة",
+      employer: "ضمن عملي في الشؤون الأكاديمية، المستشفى السعودي الألماني – عسير",
+      independent: "مشروع مستقل",
       illustrative: "المعاينة توضيحية ببيانات وهمية.",
     },
     credit: "تصميم وإعداد: محمد الشهري",
@@ -87,7 +89,7 @@ export const site = {
       "Mohammed Alshehri — a health administration specialist who turns paper-based processes in hospitals, academies and non-profits into working digital systems.",
     heroLead: "I turn paper processes into digital systems that work.",
     heroBody:
-      "I start from the real need on the ground: analyse the process, map its flow, then build a simple system the team can use from day one. I work in healthcare operations and medical training, and design digital products for non-profits, offices and individuals.",
+      "I start from the real need on the ground: analyse the process, map its flow, then build a simple system the team can use from day one. I work in healthcare operations and medical training, and deliver independent digital projects for non-profits, offices and individuals.",
     heroCtaWork: "See the work",
     heroCtaContact: "Get in touch",
     focus: [
@@ -96,20 +98,20 @@ export const site = {
       "Digital product innovation",
       "Workflow automation",
     ],
-    nav: { work: "Work", products: "Products", journey: "Journey", proof: "Achievements", contact: "Contact" },
+    nav: { work: "Healthcare", products: "Independent",  journey: "Journey", proof: "Achievements", contact: "Contact" },
     sections: {
       work: {
-        title: "Selected projects",
-        intro: "Real processes in a medical academy that lived on paper and scattered sheets, and became systems. Tap “Before” to see where each one started.",
+        title: "Healthcare experience",
+        intro: "Projects delivered as part of my role in Academic Affairs at Saudi German Hospital – Aseer: processes that lived on paper and scattered sheets, and became systems. Tap “Before” to see where each one started.",
       },
       products: {
-        title: "Digital products and experiments",
-        intro: "Ideas that became products for clients outside the hospital: non-profits, offices, authors and cooperative funds.",
+        title: "Independent projects",
+        intro: "Projects delivered outside my hospital role, for non-profits, offices, authors and cooperative funds.",
       },
       journey: { title: "Professional journey", intro: "From customer service to leading digital transformation in medical training." },
       proof: { title: "Achievements and certifications", intro: "Measurable results, and learning that doesn't stop." },
       contact: {
-        title: "Got a tiring process? Let's turn it into a system.",
+        title: "Got a tiring process? I'll turn it into a system.",
         intro: "I usually reply within one working day. WhatsApp is the fastest way.",
       },
     },
@@ -140,6 +142,8 @@ export const site = {
       recommend: "What colleagues say",
       tools_title: "Tools I use every day",
       viewToggle: "View state",
+      employer: "Delivered in my Academic Affairs role, Saudi German Hospital – Aseer",
+      independent: "Independent project",
       illustrative: "Preview is illustrative, with mock data.",
     },
     credit: "Designed and built by Mohammed Alshehri",
@@ -159,7 +163,7 @@ export const journey = [
     title: { ar: "أخصائي خدمة عملاء", en: "Customer Service Specialist" },
     place: { ar: "آفاق للخدمات البشرية", en: "Afaq Human Resources Services" },
     body: {
-      ar: "إدارة بيانات العملاء وتنظيم الملفات إلكترونياً، وإعداد التقارير والمتابعة اليومية.",
+      ar: "أدرت بيانات العملاء ونظّمت الملفات إلكترونياً، وأعددت التقارير والمتابعة اليومية.",
       en: "Managed client data and electronic files, prepared reports and ran daily follow-ups.",
     },
   },
@@ -168,7 +172,7 @@ export const journey = [
     title: { ar: "أخصائي تحول رقمي", en: "Digital Transformation Specialist" },
     place: { ar: "جمعية الدعوة والإرشاد بالمجاردة", en: "Al-Majardah Da'wah and Guidance Association" },
     body: {
-      ar: "إدارة المنصة الإلكترونية وتحسين تجربة المستخدم، وبناء الإجراءات التشغيلية ومتابعة الأداء.",
+      ar: "أدرت المنصة الإلكترونية وحسّنت تجربة المستخدم، وبنيت الإجراءات التشغيلية وتابعت الأداء.",
       en: "Ran the online platform and its user experience, built operating procedures and monitored performance.",
     },
   },
@@ -176,24 +180,15 @@ export const journey = [
     period: { ar: "تطوعي", en: "Volunteer" },
     title: { ar: "أخصائي تحول رقمي متطوع", en: "Volunteer Digital Transformation Specialist" },
     place: { ar: "جمعية الإسكان التنموي بجازان", en: "Jazan Development Housing Association" },
-    body: { ar: "203 ساعة تطوعية، منها لوحة إحصاءات المتطوعين.", en: "203 volunteer hours, including a volunteer statistics dashboard." },
+    body: { ar: "تطوعت 203 ساعات، وبنيت خلالها لوحة إحصاءات المتطوعين.", en: "Volunteered 203 hours, including building a volunteer statistics dashboard." },
   },
   {
     period: { ar: "مايو – أكتوبر 2026", en: "May – Oct 2026" },
     title: { ar: "منسق برامج (متدرب)", en: "Programs Coordinator (Trainee)" },
     place: { ar: "الشؤون الأكاديمية، المستشفى السعودي الألماني – عسير", en: "Academic Affairs, Saudi German Hospital – Aseer" },
     body: {
-      ar: "تنسيق ملفات اعتماد برامج الإقامة، وأتمتة إجراءات التدريب، وتوحيد المنصات التشغيلية في الأكاديمية.",
+      ar: "نسّقت ملفات اعتماد برامج الإقامة، وأتمتّ إجراءات التدريب، ووحّدت المنصات التشغيلية في الأكاديمية.",
       en: "Coordinated residency accreditation files, automated training procedures and unified the academy's operating platforms.",
-    },
-  },
-  {
-    period: { ar: "حالياً", en: "Now" },
-    title: { ar: "مؤسس", en: "Founder" },
-    place: { ar: "آفاق للخدمات الرقمية", en: "Afaq Digital Services" },
-    body: {
-      ar: "أنظمة ومنتجات رقمية للقطاع غير الربحي والتعليمي.",
-      en: "Digital systems and products for the non-profit and education sectors.",
     },
   },
 ];
@@ -258,7 +253,7 @@ export const tools = [
   "Google Sheets",
   "Google Forms",
   "Google Workspace",
-  "Looker Studio",
+  "Data Studio",
   "Microsoft Excel",
   "Notion",
   "Teamup",

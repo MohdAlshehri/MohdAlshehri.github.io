@@ -18,7 +18,7 @@ const anchor = p.group === "work" ? "#work" : "#products";
 <Layout lang={lang} title={tx(p.title, lang)} description={tx(p.summary, lang)}>
   <div class="lined">
     <div class="rail"><div class="fill"></div></div>
-    <article class="inner cs">
+    <article class={`inner cs ${p.group === "work" ? "care" : ""}`}>
       <a class="back" href={`${home(lang)}${anchor}`}>{l.back}</a>
 
       <header class="cs-head">
@@ -26,6 +26,7 @@ const anchor = p.group === "work" ? "#work" : "#products";
         <p class="meta">{tx(p.sector, lang)}<span>{p.year}</span></p>
         <h1>{tx(p.title, lang)}</h1>
         <p class="sum">{tx(p.summary, lang)}</p>
+        <p class="ctx">{p.group === "work" ? l.employer : l.independent}</p>
       </header>
 
       <dl class="facts">
@@ -67,6 +68,9 @@ const anchor = p.group === "work" ? "#work" : "#products";
 
 <style>
   .cs { padding-block: 40px 100px; }
+  .cs.care { --volt: #0e9478; --volt-deep: #0a7660; --volt-soft: #dcf3eb; }
+  .ctx { margin-top: 14px; font-size: .95rem; color: var(--volt-deep); display: flex; align-items: center; gap: 8px; }
+  .ctx::before { content: ""; inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--volt); flex: none; }
   .back { display: inline-block; font-size: .95rem; color: var(--slate); text-decoration: none; margin-bottom: 40px; }
   .back:hover { color: var(--volt); }
   .cs-head { position: relative; max-width: 50rem; }
