@@ -246,7 +246,7 @@ export const recommendations = [
       ar: "من المواهب الواعدة التي تبحث عنها المنظمة.",
       en: "One of the promising talents the organization seeks.",
     },
-    by: { ar: "أ. عبير مشطة", en: "Ms. Abeer Mashtaa" },
+    by: { ar: "أ. عبير مشطا", en: "Ms. Abeer Mashtaa" },
     role: {
       ar: "مديرة الشؤون الأكاديمية والتدريب، المستشفى السعودي الألماني – عسير",
       en: "Academic & Training Affairs Manager, Saudi German Hospital – Aseer",
