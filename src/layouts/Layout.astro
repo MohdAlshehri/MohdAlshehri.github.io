@@ -12,6 +12,8 @@ import "@fontsource/ibm-plex-sans-arabic/latin-500.css";
 import "@fontsource/aref-ruqaa/arabic-400.css";
 import "@fontsource/caveat/latin-500.css";
 import "../styles/global.css";
+import alexBold from "@fontsource/alexandria/files/alexandria-arabic-700-normal.woff2?url";
+import plexBody from "@fontsource/ibm-plex-sans-arabic/files/ibm-plex-sans-arabic-arabic-400-normal.woff2?url";
 import { site, contact } from "../data/site.js";
 import { home, swapPath } from "../data/i18n.js";
 
@@ -24,6 +26,30 @@ const path = Astro.url.pathname;
 const altPath = swapPath(lang, path);
 const base = onHome ? "" : home(lang);
 const year = new Date().getFullYear();
+
+// روابط كاملة لمحركات البحث ومعاينة الروابط
+const origin = "https://mohdalshehri.github.io";
+const canonical = origin + path;
+const arUrl = origin + (lang === "ar" ? path : altPath);
+const enUrl = origin + (lang === "en" ? path : altPath);
+const ogImage = `${origin}/images/og-${lang}.jpg`;
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: s.name,
+  alternateName: lang === "en" ? site.ar.name : site.en.name,
+  jobTitle: s.title,
+  url: origin + home(lang),
+  image: `${origin}/images/mohammed-460.webp`,
+  sameAs: [contact.linkedin],
+  address: { "@type": "PostalAddress", addressRegion: lang === "en" ? "Aseer" : "عسير", addressCountry: "SA" },
+};
+const navItems = [
+  ["#work", s.nav.work],
+  ["#products", s.nav.products],
+  ["#journey", s.nav.journey],
+  ["#proof", s.nav.proof],
+];
 ---
 <!doctype html>
 <html lang={lang} dir={dir}>
@@ -33,12 +59,29 @@ const year = new Date().getFullYear();
     <title>{pageTitle}</title>
     <meta name="description" content={desc} />
     <meta name="theme-color" content="#0b1e3f" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="ar" href={arUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={arUrl} />
+    <meta property="og:type" content={onHome ? "profile" : "article"} />
+    <meta property="og:site_name" content={s.name} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={desc} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/images/og.jpg" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === "en" ? "en_US" : "ar_SA"} />
+    <meta property="og:locale:alternate" content={lang === "en" ? "ar_SA" : "en_US"} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={`${s.name} | ${s.title}`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={desc} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="alternate" hreflang={lang === "en" ? "ar" : "en"} href={altPath} />
+    <link rel="preload" href={alexBold} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={plexBody} as="font" type="font/woff2" crossorigin />
+    <script type="application/ld+json" set:html={JSON.stringify(personLd)} />
   </head>
   <body>
     <a class="skip" href="#main">{lang === "en" ? "Skip to content" : "تخطَّ إلى المحتوى"}</a>
@@ -51,16 +94,18 @@ const year = new Date().getFullYear();
           </svg>
           <span>{s.name}</span>
         </a>
-        <nav aria-label={lang === "en" ? "Main" : "الرئيسية"}>
-          <ul>
-            <li><a href={`${base}#work`}>{s.nav.work}</a></li>
-            <li><a href={`${base}#products`}>{s.nav.products}</a></li>
-            <li><a href={`${base}#journey`}>{s.nav.journey}</a></li>
-            <li><a href={`${base}#proof`}>{s.nav.proof}</a></li>
-            <li><a href={`${base}#contact`} class="nav-cta">{s.nav.contact}</a></li>
+        <nav class="nav" aria-label={lang === "en" ? "Main" : "القائمة الرئيسية"}>
+          <ul id="nav-list" class="nav-list">
+            {!onHome && <li class="nav-home"><a href={home(lang)}>{lang === "en" ? "Home" : "الرئيسية"}</a></li>}
+            {navItems.map(([h, t]) => <li><a href={`${base}${h}`}>{t}</a></li>)}
+            <li class="only-m"><a href={`${base}#contact`}>{s.nav.contact}</a></li>
           </ul>
         </nav>
+        <a href={`${base}#contact`} class="nav-cta">{s.nav.contact}</a>
         <a class="lang" href={altPath} hreflang={lang === "en" ? "ar" : "en"} lang={lang === "en" ? "ar" : "en"}>{s.labels.langSwitch}</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" aria-label={lang === "en" ? "Open menu" : "فتح القائمة"} data-open-label={lang === "en" ? "Open menu" : "فتح القائمة"} data-close-label={lang === "en" ? "Close menu" : "إغلاق القائمة"}>
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </header>
 
@@ -71,7 +116,7 @@ const year = new Date().getFullYear();
     <footer class="foot">
       <div class="wrap foot-in">
         <p>© {year} {s.name}</p>
-        <p>{s.credit} - {lang === "en" ? "Contact:" : "للتواصل:"} <a href={`tel:${contact.phone}`} dir="ltr">0564824329</a></p>
+        <p>{s.credit} - {lang === "en" ? "Contact:" : "للتواصل:"} <a class="foot-link" href={`tel:${contact.phone}`} dir="ltr">0564824329</a></p>
       </div>
     </footer>
 
@@ -98,6 +143,18 @@ const year = new Date().getFullYear();
       addEventListener("resize", update);
       update();
 
+      // قائمة الجوال
+      const menuBtn = document.querySelector(".menu-btn");
+      const header = document.querySelector(".top");
+      const setMenu = (open) => {
+        header.classList.toggle("menu-open", open);
+        menuBtn.setAttribute("aria-expanded", String(open));
+        menuBtn.setAttribute("aria-label", open ? menuBtn.dataset.closeLabel : menuBtn.dataset.openLabel);
+      };
+      menuBtn?.addEventListener("click", () => setMenu(menuBtn.getAttribute("aria-expanded") !== "true"));
+      document.querySelectorAll(".nav-list a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+      addEventListener("keydown", (e) => { if (e.key === "Escape" && header.classList.contains("menu-open")) { setMenu(false); menuBtn.focus(); } });
+
       // أزرار قبل / بعد
       document.querySelectorAll("[data-ba]").forEach((box) => {
         const btns = box.querySelectorAll("[data-state]");
@@ -112,23 +169,43 @@ const year = new Date().getFullYear();
 
     <style>
       .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--mist); }
-      .top-in { display: flex; align-items: center; gap: 24px; height: 66px; }
+      .top-in { display: flex; align-items: center; gap: 12px; height: 66px; }
       .mark { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: var(--f-display); font-weight: 600; color: var(--ink); font-size: 1.02rem; }
-      nav { margin-inline-start: auto; }
-      nav ul { display: flex; gap: 4px; list-style: none; }
-      nav a { display: block; padding: 8px 12px; border-radius: 8px; text-decoration: none; font-size: .95rem; color: var(--ink-2); }
-      nav a:hover { color: var(--volt); }
-      nav .nav-cta { background: var(--ink); color: #fff; padding-inline: 16px; border-radius: 999px; }
-      nav .nav-cta:hover { background: var(--volt); color: #fff; }
-      .lang { font-family: var(--f-display); font-size: .92rem; text-decoration: none; color: var(--ink); border: 1.5px solid var(--mist); padding: 6px 12px; border-radius: 999px; }
+      .nav { margin-inline-start: auto; }
+      .nav-list { display: flex; gap: 2px; list-style: none; }
+      .nav-list a { display: flex; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 8px; text-decoration: none; font-size: .95rem; color: var(--ink-2); }
+      .nav-list a:hover { color: var(--volt); }
+      .nav-cta { display: inline-flex; align-items: center; min-height: 40px; background: var(--ink); color: #fff; padding: 0 18px; border-radius: 999px; text-decoration: none; font-size: .95rem; white-space: nowrap; }
+      .nav-cta:hover { background: var(--volt); color: #fff; }
+      .lang { display: inline-flex; align-items: center; min-height: 40px; font-family: var(--f-display); font-size: .92rem; text-decoration: none; color: var(--ink); border: 1.5px solid var(--mist); padding: 0 12px; border-radius: 999px; white-space: nowrap; }
       .lang:hover { border-color: var(--volt); color: var(--volt); }
-      @media (max-width: 860px) {
-        nav li:not(:last-child) { display: none; }
-        .mark span { font-size: .95rem; }
+      .menu-btn { display: none; inline-size: 44px; block-size: 44px; border: 1.5px solid var(--mist); border-radius: 12px; background: var(--white); cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; }
+      .menu-btn span { display: block; inline-size: 18px; block-size: 2px; background: var(--ink); border-radius: 2px; transition: transform .25s, opacity .2s; }
+      .menu-open .menu-btn span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+      .menu-open .menu-btn span:nth-child(2) { opacity: 0; }
+      .menu-open .menu-btn span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+      .only-m { display: none; }
+      @media (max-width: 960px) {
+        .only-m { display: block; }
+        .nav { margin: 0; }
+        .nav-cta { margin-inline-start: auto; }
+        .menu-btn { display: inline-flex; }
+        .nav-list { display: none; position: absolute; inset-inline: 0; top: 100%; flex-direction: column; gap: 0; padding: 8px 16px 16px; background: var(--paper); border-bottom: 1px solid var(--mist); box-shadow: 0 18px 30px -20px rgba(11,30,63,.35); }
+        .menu-open .nav-list { display: flex; }
+        .nav-list a { min-height: 52px; font-size: 1.05rem; font-family: var(--f-display); font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--mist-2); border-radius: 0; padding: 0 4px; }
+        .nav-list li:last-child a { border-bottom: 0; }
       }
+      @media (max-width: 520px) {
+        .top-in { gap: 8px; padding-inline: 16px; }
+        .mark span { font-size: .92rem; }
+        .nav-cta { display: none; }
+        .lang { margin-inline-start: auto; padding: 0 10px; font-size: .85rem; }
+      }
+      @media (max-width: 360px) { .mark span { display: none; } }
       .foot { margin-top: 0; background: var(--ink); color: #aab6cc; font-size: .9rem; }
       .foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 22px; border-top: 1px solid #22355c; }
-      .foot a { color: #fff; text-decoration: none; }
+      .foot a { color: #fff; }
+      .foot-link { text-decoration: underline; text-underline-offset: 3px; }
     </style>
   </body>
 </html>

@@ -160,7 +160,7 @@ const days = L(["أحد", "اثنين", "ثلاثاء", "أربعاء", "خمي�
   {type === "library" && (
     <div class="body library">
       <div class="shelf">
-        {["#0b1e3f", "#2c66ff", "#22355c", "#5d6d88", "#1847d6", "#13294f", "#3d78ff", "#0b1e3f"].map((c, i) => (
+        {["#0b1e3f", "#1847d6", "#22355c", "#44536d", "#1847d6", "#13294f", "#1c4fd8", "#0b1e3f"].map((c, i) => (
           <span class="book" style={`--c:${c}`}><i>{L(`المجلد ${i + 1}`, `Vol. ${i + 1}`)}</i></span>
         ))}
       </div>
@@ -214,13 +214,13 @@ const days = L(["أحد", "اثنين", "ثلاثاء", "أربعاء", "خمي�
   .bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--mist-2); background: #fbfcfe; }
   .bar .dot { inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--volt); box-shadow: 0 0 0 3px var(--volt-soft); }
   .bar .app { font-family: var(--f-display); font-weight: 600; color: var(--ink); font-size: 12.5px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
-  .bar .live { margin-inline-start: auto; font-size: 11px; color: var(--ok); display: flex; align-items: center; gap: 5px; }
+  .bar .live { margin-inline-start: auto; font-size: 11px; color: #0f7a59; display: flex; align-items: center; gap: 5px; }
   .bar .live::before { content: ""; inline-size: 6px; block-size: 6px; border-radius: 50%; background: var(--ok); }
   .body { padding: 14px; flex: 1; min-block-size: 0; }
   b { color: var(--ink); font-family: var(--f-display); font-weight: 600; }
   small { color: var(--slate); font-size: 11px; display: block; }
   em { font-style: normal; font-size: 11px; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
-  em.ok { background: #e3f6ef; color: #12805e; } em.warn { background: #fdf1dc; color: #a86a0c; } em.bad { background: #fde6e6; color: #b53434; }
+  em.ok { background: #e3f6ef; color: #0b6b4f; } em.warn { background: #fdf1dc; color: #8a5300; } em.bad { background: #fde6e6; color: #a12828; }
   code { font-family: var(--f-body); font-size: 10.5px; background: var(--mist-2); color: var(--ink); padding: 1px 6px; border-radius: 4px; direction: ltr; }
   .bt { display: block; block-size: 6px; background: var(--mist-2); border-radius: 9px; overflow: hidden; }
   .bt i { display: block; block-size: 100%; background: var(--volt); border-radius: 9px; }
@@ -237,7 +237,7 @@ const days = L(["أحد", "اثنين", "ثلاثاء", "أربعاء", "خمي�
   .hall { font-size: 10.5px; color: var(--ink); align-self: center; }
   .slot { block-size: 30px; border-radius: 6px; background: var(--mist-2); display: flex; padding: 3px; }
   .ev { flex: 1; border-radius: 4px; font-style: normal; font-size: 9.5px; padding: 2px 4px; color: #fff; overflow: hidden; white-space: nowrap; }
-  .e0 { background: var(--volt); } .e1 { background: var(--ink); } .e2 { background: #8fb0ff; color: var(--ink); } .e3 { background: #22355c; }
+  .e0 { background: var(--volt-deep); } .e1 { background: var(--ink); } .e2 { background: #8fb0ff; color: var(--ink); } .e3 { background: #22355c; }
   .side { display: flex; flex-direction: column; gap: 8px; }
   .req { border: 1px solid var(--mist); border-radius: 8px; padding: 10px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; }
   .req em { align-self: flex-start; margin-top: 4px; }
@@ -330,7 +330,7 @@ const days = L(["أحد", "اثنين", "ثلاثاء", "أربعاء", "خمي�
   .shelf { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; align-items: end; padding-bottom: 6px; border-bottom: 3px solid var(--ink); }
   .book { aspect-ratio: 2 / 3; background: var(--c); border-radius: 3px 5px 5px 3px; position: relative; display: flex; align-items: flex-end; padding: 4px; box-shadow: inset 3px 0 0 rgba(255,255,255,.15); }
   .book:nth-child(odd) { transform: translateY(-4px); }
-  .book i { font-style: normal; color: #fff; font-size: 8px; opacity: .85; }
+  .book i { font-style: normal; color: #fff; font-size: 8px; text-shadow: 0 0 2px rgba(0,0,0,.6); }
   .spread { display: grid; grid-template-columns: 1fr 1fr; block-size: 70px; background: #fff; border: 1px solid var(--mist); border-radius: 4px; overflow: hidden; }
   .spread span { background: repeating-linear-gradient(to bottom, transparent 0 9px, var(--mist-2) 9px 11px); margin: 10px 12px; }
   .spread span:first-child { border-inline-end: 1px solid var(--mist); margin-inline-end: 0; padding-inline-end: 12px; }

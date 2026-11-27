@@ -61,8 +61,10 @@ ul { margin: 0; padding: 0; }
 
 :focus-visible { outline: 3px solid var(--volt); outline-offset: 3px; border-radius: 4px; }
 
-.skip { position: absolute; inset-inline-start: -999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 14px; z-index: 100; border-radius: 6px; }
-.skip:focus { inset-inline-start: 8px; }
+.skip { position: fixed; inset-inline-start: 8px; top: 8px; background: var(--ink); color: #fff; padding: 10px 16px; z-index: 100; border-radius: 8px; transform: translateY(-160%); transition: transform .2s; }
+.skip:focus { transform: none; }
+html, body { overflow-x: clip; }
+[id] { scroll-margin-top: 84px; }
 
 .wrap { max-width: var(--max); margin-inline: auto; padding-inline: 24px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -110,8 +112,8 @@ ul { margin: 0; padding: 0; }
 .node.on { border-color: var(--volt); background: var(--volt); box-shadow: 0 0 0 6px var(--volt-soft); }
 
 /* ---------- عناوين الأقسام ---------- */
-.section { position: relative; padding-block: clamp(72px, 10vw, 132px) 0; }
-.section-head { position: relative; max-width: 46rem; margin-bottom: clamp(36px, 5vw, 60px); }
+.section { position: relative; padding-block: clamp(56px, 10vw, 132px) 0; }
+.section-head { position: relative; max-width: 46rem; margin-bottom: clamp(28px, 5vw, 60px); }
 .section-head .node { top: .55em; inset-inline-start: calc(var(--line-x) - var(--gutter) - 8px); }
 .section-head h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); letter-spacing: -0.01em; }
 html[lang="en"] .section-head h2 { letter-spacing: -0.025em; }

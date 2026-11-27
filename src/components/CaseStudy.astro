@@ -12,14 +12,28 @@ const s = site[lang];
 const l = s.labels;
 const i = projects.findIndex((p) => p.slug === slug);
 const p = projects[i];
-const next = projects[(i + 1) % projects.length];
+// التنقل داخل نفس المجموعة (القطاع الصحي أو المشاريع المستقلة)
+const group = projects.filter((x) => x.group === p.group);
+const gi = group.findIndex((x) => x.slug === slug);
+const prev = group[(gi - 1 + group.length) % group.length];
+const next = group[(gi + 1) % group.length];
 const anchor = p.group === "work" ? "#work" : "#products";
+const groupName = p.group === "work" ? s.nav.work : s.sections.products.title;
+const allLabel = p.group === "work" ? l.allWork : l.allIndependent;
+const backUrl = `${home(lang)}${anchor}`;
 ---
 <Layout lang={lang} title={tx(p.title, lang)} description={tx(p.summary, lang)}>
   <div class="lined">
     <div class="rail"><div class="fill"></div></div>
     <article class={`inner cs ${p.group === "work" ? "care" : ""}`}>
-      <a class="back" href={`${home(lang)}${anchor}`}>{l.back}</a>
+      <nav class="crumbs" aria-label={l.breadcrumb}>
+        <ol>
+          <li><a href={home(lang)}>{l.homeLink}</a></li>
+          <li><a href={backUrl}>{groupName}</a></li>
+          <li aria-current="page">{tx(p.title, lang)}</li>
+        </ol>
+      </nav>
+      <a class="back" href={backUrl}><Icon name="back" size={20} class="dir-icon" />{allLabel}</a>
 
       <header class="cs-head">
         <span class="node"></span>
@@ -58,10 +72,20 @@ const anchor = p.group === "work" ? "#work" : "#products";
         </ul>
       </section>
 
-      <a class="next" href={workUrl(lang, next.slug)}>
-        <small>{l.next}</small>
-        <span>{tx(next.title, lang)}</span>
-      </a>
+      <nav class="pager" aria-label={lang === "en" ? "More projects" : "مشاريع أخرى"}>
+        <a class="pg prev" href={workUrl(lang, prev.slug)} rel="prev">
+          <small><Icon name="back" size={16} class="dir-icon" />{l.prev}</small>
+          <span>{tx(prev.title, lang)}</span>
+        </a>
+        <a class="pg next" href={workUrl(lang, next.slug)} rel="next">
+          <small>{l.next}<Icon name="back" size={16} class="dir-icon flip" /></small>
+          <span>{tx(next.title, lang)}</span>
+        </a>
+      </nav>
+      <div class="end-links">
+        <a class="btn btn-ghost" href={backUrl}><Icon name="back" size={18} class="dir-icon" />{allLabel}</a>
+        <a class="btn btn-ghost" href={home(lang)}><Icon name="home" size={18} />{l.backHome}</a>
+      </div>
     </article>
   </div>
 </Layout>
@@ -71,8 +95,18 @@ const anchor = p.group === "work" ? "#work" : "#products";
   .cs.care { --volt: #0e9478; --volt-deep: #0a7660; --volt-soft: #dcf3eb; }
   .ctx { margin-top: 14px; font-size: .95rem; color: var(--volt-deep); display: flex; align-items: center; gap: 8px; }
   .ctx::before { content: ""; inline-size: 8px; block-size: 8px; border-radius: 50%; background: var(--volt); flex: none; }
-  .back { display: inline-block; font-size: .95rem; color: var(--slate); text-decoration: none; margin-bottom: 40px; }
-  .back:hover { color: var(--volt); }
+  .crumbs ol { list-style: none; margin: 0 0 14px; padding: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; font-size: .9rem; color: var(--slate); }
+  .crumbs li { display: flex; align-items: center; gap: 8px; }
+  .crumbs li + li::before { content: "/"; color: #b3bfd3; }
+  .crumbs a { color: var(--ink-2); text-decoration: none; padding-block: 10px; }
+  .crumbs a:hover { color: var(--volt); text-decoration: underline; }
+  .crumbs [aria-current] { color: var(--slate); max-inline-size: 26ch; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+  .back { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; margin-bottom: 36px; border-radius: 999px; background: var(--white); border: 1.5px solid var(--mist); color: var(--ink); font-family: var(--f-display); font-weight: 500; font-size: .95rem; text-decoration: none; transition: border-color .2s, color .2s; }
+  :global([dir="rtl"]) .back { padding: 0 14px 0 18px; }
+  .back:hover { border-color: var(--volt); color: var(--volt); }
+  :global([dir="rtl"]) .cs :global(.dir-icon) { transform: scaleX(-1); }
+  .cs :global(.dir-icon.flip) { transform: scaleX(-1); }
+  :global([dir="rtl"]) .cs :global(.dir-icon.flip) { transform: none; }
   .cs-head { position: relative; max-width: 50rem; }
   .node { inset-inline-start: calc(var(--line-x) - var(--gutter) - 8px); }
   .cs-head .node { top: 3.1em; }
@@ -95,10 +129,27 @@ const anchor = p.group === "work" ? "#work" : "#products";
   .results { list-style: none; display: grid; gap: 12px; }
   .results li { display: flex; gap: 10px; align-items: flex-start; font-size: 1.1rem; color: var(--ink); font-weight: 500; }
   .results :global(svg) { color: var(--volt); flex: none; margin-top: 4px; }
-  .next { display: grid; gap: 4px; margin-top: 40px; padding: 30px 32px; border-radius: 18px; background: var(--ink); color: #fff; text-decoration: none; max-width: 980px; transition: background .2s; }
-  .next:hover { background: var(--volt); }
-  .next small { color: #9fb0cf; } .next:hover small { color: #e6eeff; }
-  .next span { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.3rem, 3vw, 1.9rem); }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 40px; max-width: 980px; }
+  .pg { display: grid; gap: 6px; align-content: start; padding: 24px 26px; border-radius: 18px; text-decoration: none; transition: background .2s, border-color .2s; }
+  .pg small { display: flex; align-items: center; gap: 6px; font-size: .9rem; }
+  .pg span { font-family: var(--f-display); font-weight: 600; font-size: clamp(1.1rem, 2.4vw, 1.5rem); line-height: 1.35; }
+  .prev { background: var(--white); border: 1.5px solid var(--mist); color: var(--ink); }
+  .prev small { color: var(--slate); }
+  .prev:hover { border-color: var(--volt); }
+  .next { background: var(--ink); color: #fff; text-align: end; }
+  .next small { color: #9fb0cf; justify-content: flex-end; }
+  .next:hover { background: var(--volt); } .next:hover small { color: #e6eeff; }
+  .end-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .end-links .btn { min-height: 44px; }
+  @media (max-width: 640px) {
+    .pager { grid-template-columns: 1fr; }
+    .next { order: -1; text-align: start; } .next small { justify-content: flex-start; }
+    .end-links .btn { flex: 1 1 100%; justify-content: center; }
+    .cs { padding-block: 24px 64px; }
+    .back { margin-bottom: 24px; }
+    .visual { margin-block: 32px 8px; }
+    .block { padding-block: 28px; }
+  }
   @media (max-width: 720px) {
     .block { grid-template-columns: 1fr; gap: 14px; }
     .facts { grid-template-columns: 1fr; }

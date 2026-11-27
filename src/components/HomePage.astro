@@ -28,7 +28,7 @@ const strengthIcons = ["discover", "flow", "spark", "precise"];
         </ul>
       </div>
       <figure class="portrait">
-        <div class="photo"><img src="/images/mohammed.webp" alt={s.name} width="895" height="1088" fetchpriority="high" /></div>
+        <div class="photo"><img src="/images/mohammed-460.webp" srcset="/images/mohammed-460.webp 460w, /images/mohammed-690.webp 690w" sizes="(max-width: 860px) 180px, 230px" alt={s.name} width="460" height="559" fetchpriority="high" /></div>
         <figcaption class="badge">
           <Icon name="shield" size={22} />
           <span>{s.classification}</span>
@@ -54,7 +54,8 @@ const strengthIcons = ["discover", "flow", "spark", "precise"];
     <div class="inner">
 
       <!-- ============ طريقة العمل ============ -->
-      <section class="method" aria-label={lang === "en" ? "How I work" : "طريقتي في العمل"}>
+      <section class="method" aria-labelledby="method-title">
+        <h2 id="method-title" class="sr-only">{lang === "en" ? "How I work" : "طريقتي في العمل"}</h2>
         {s.strengths.map((st, i) => (
           <div class="m-item">
             <span class="m-ic"><Icon name={strengthIcons[i]} size={26} /></span>
@@ -79,7 +80,7 @@ const strengthIcons = ["discover", "flow", "spark", "precise"];
                 <p class="meta">{tx(p.sector, lang)}<span>{p.year}</span></p>
                 <h3><a href={workUrl(lang, p.slug)}>{tx(p.title, lang)}</a></h3>
                 <p class="sum">{tx(p.summary, lang)}</p>
-                <a class="text-link" href={workUrl(lang, p.slug)}>{l.readCase}<span class="sr-only">: {tx(p.title, lang)}</span></a>
+                <a class="text-link case-link" href={workUrl(lang, p.slug)}>{l.readCase}<span class="sr-only">: {tx(p.title, lang)}</span></a>
               </div>
               <div class="work-visual"><BeforeAfter project={p} lang={lang} /></div>
             </article>
@@ -202,8 +203,10 @@ const strengthIcons = ["discover", "flow", "spark", "precise"];
   :global([dir="rtl"]) .portrait::before { transform: translate(16px, 16px); }
   /* توهج أزرق خفيف */
   .portrait::after { content: ""; position: absolute; inset: 12% 8% -4%; border-radius: 50%; background: radial-gradient(closest-side, rgba(44,102,255,.22), transparent); filter: blur(24px); z-index: -2; }
+  .case-link { display: inline-flex; align-items: center; min-height: 44px; }
   .photo { border-radius: 200px 200px 18px 18px; overflow: hidden; background: #fff; aspect-ratio: 895 / 1088; box-shadow: 0 0 0 6px #fff, 0 0 0 7px var(--mist), 0 28px 50px -22px rgba(11,30,63,.45), 0 10px 18px -12px rgba(11,30,63,.25); }
   .photo img { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: center 20%; }
+  .photo { aspect-ratio: 460 / 559; }
   .badge { position: absolute; inset-inline-start: -44px; inset-block-end: -30px; display: flex; gap: 8px; align-items: center; max-inline-size: 230px; background: var(--ink); color: #fff; padding: 9px 13px; border-radius: 11px; font-size: .78rem; line-height: 1.45; box-shadow: 0 18px 36px -18px rgba(11,30,63,.6); }
   .badge :global(svg) { color: #8fb0ff; flex: none; }
 
@@ -303,6 +306,28 @@ const strengthIcons = ["discover", "flow", "spark", "precise"];
   @media (max-width: 860px) { .proof-grid { grid-template-columns: 1fr; } }
 
   .rail-end { block-size: clamp(80px, 10vw, 120px); }
+
+  /* ---------- تقليل المسافات في الجوال ---------- */
+  @media (max-width: 640px) {
+    .hero { padding-top: 20px; }
+    .strip { block-size: 120px; }
+    .method { gap: 14px; padding-top: 12px; }
+    .m-item { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; }
+    .m-ic { inline-size: 44px; block-size: 44px; margin: 0; grid-row: span 2; }
+    .m-item h3 { margin: 0; align-self: end; }
+    .work-list { gap: 52px; }
+    .work { gap: 18px; }
+    .sum { margin-block: 10px 8px; }
+    .products { gap: 44px; }
+    .journey li { padding-block: 18px; }
+    .figures li { padding: 18px; }
+    .proof-grid { margin-top: 40px; }
+    .sub:not(:first-child) { margin-top: 28px; }
+    blockquote { padding: 20px; }
+    .rail-end { block-size: 56px; }
+    .channels { margin-top: 28px; }
+    .channels a { padding: 16px; }
+  }
 
   /* ---------- Contact ---------- */
   .contact { background: var(--ink); color: #c9d4ea; }
