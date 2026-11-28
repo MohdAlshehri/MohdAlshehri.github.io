@@ -118,8 +118,8 @@ const navItems = [
     <footer class="foot">
       <div class="wrap foot-in">
         <p>© {year} {s.name}</p>
-        {!onHome && <p class="visits" data-visits-box hidden>
-          {s.visits}: <b data-visits dir="ltr"></b>
+        {!onHome && <p class="visits" data-visits-box>
+          {s.visits}: <b data-visits dir="ltr">—</b>
           <a class="foot-link" href={stats} target="_blank" rel="noopener">{s.visitSources}</a>
         </p>}
         <p>{s.credit} - {lang === "en" ? "Contact:" : "للتواصل:"} <a class="foot-link" href={`tel:${contact.phone}`} dir="ltr">0564824329</a></p>
@@ -149,7 +149,7 @@ const navItems = [
       addEventListener("resize", update);
       update();
 
-      // عدد الزيارات الكلي (يظهر فقط إذا وصل الرقم بنجاح؛ يتحدث كل بضع ساعات)
+      // عدد الزيارات الكلي: البطاقة ورابط الإحصائيات ظاهران دائماً، والرقم يظهر عند وصوله (يتحدث كل بضع ساعات)
       fetch("https://mohdalshehri.goatcounter.com/counter/TOTAL.json")
         .then((r) => (r.ok ? r.json() : Promise.reject()))
         .then((d) => {
@@ -158,7 +158,6 @@ const navItems = [
           const fmt = (n) => n.toLocaleString("en-US");
           document.querySelectorAll("[data-visits-box]").forEach((box) => {
             const out = box.querySelector("[data-visits]");
-            box.hidden = false;
             // عدّ تصاعدي مرة واحدة عند ظهور العداد في الشاشة
             if (reduce || !("IntersectionObserver" in window)) { out.textContent = fmt(total); return; }
             out.textContent = "0";
