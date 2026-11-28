@@ -26,6 +26,8 @@ const path = Astro.url.pathname;
 const altPath = swapPath(lang, path);
 const base = onHome ? "" : home(lang);
 const year = new Date().getFullYear();
+// إحصائيات الزيارات (GoatCounter) — لوحة عامة بدون مفاتيح سرية
+const stats = "https://mohdalshehri.goatcounter.com";
 
 // روابط كاملة لمحركات البحث ومعاينة الروابط
 const origin = "https://mohdalshehri.github.io";
@@ -116,6 +118,10 @@ const navItems = [
     <footer class="foot">
       <div class="wrap foot-in">
         <p>© {year} {s.name}</p>
+        {!onHome && <p class="visits" data-visits-box hidden>
+          {s.visits}: <b data-visits dir="ltr"></b>
+          <a class="foot-link" href={stats} target="_blank" rel="noopener">{s.visitSources}</a>
+        </p>}
         <p>{s.credit} - {lang === "en" ? "Contact:" : "للتواصل:"} <a class="foot-link" href={`tel:${contact.phone}`} dir="ltr">0564824329</a></p>
       </div>
     </footer>
@@ -143,6 +149,35 @@ const navItems = [
       addEventListener("resize", update);
       update();
 
+      // عدد الزيارات الكلي (يظهر فقط إذا وصل الرقم بنجاح؛ يتحدث كل بضع ساعات)
+      fetch("https://mohdalshehri.goatcounter.com/counter/TOTAL.json")
+        .then((r) => (r.ok ? r.json() : Promise.reject()))
+        .then((d) => {
+          const total = parseInt(String(d.count).replace(/[^0-9]/g, ""), 10);
+          if (!total) return;
+          const fmt = (n) => n.toLocaleString("en-US");
+          document.querySelectorAll("[data-visits-box]").forEach((box) => {
+            const out = box.querySelector("[data-visits]");
+            box.hidden = false;
+            // عدّ تصاعدي مرة واحدة عند ظهور العداد في الشاشة
+            if (reduce || !("IntersectionObserver" in window)) { out.textContent = fmt(total); return; }
+            out.textContent = "0";
+            const io = new IntersectionObserver((entries) => {
+              if (!entries[0].isIntersecting) return;
+              io.disconnect();
+              const t0 = performance.now(), dur = 1400;
+              const step = (t) => {
+                const k = Math.min(1, (t - t0) / dur);
+                out.textContent = fmt(Math.round(total * (1 - Math.pow(1 - k, 3))));
+                if (k < 1) requestAnimationFrame(step);
+              };
+              requestAnimationFrame(step);
+            }, { threshold: 0.6 });
+            io.observe(box);
+          });
+        })
+        .catch(() => {});
+
       // قائمة الجوال
       const menuBtn = document.querySelector(".menu-btn");
       const header = document.querySelector(".top");
@@ -166,6 +201,7 @@ const navItems = [
         );
       });
     </script>
+    <script data-goatcounter="https://mohdalshehri.goatcounter.com/count" async src="https://gc.zgo.at/count.js" is:inline></script>
 
     <style>
       .top { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 88%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--mist); }
@@ -206,6 +242,9 @@ const navItems = [
       .foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; padding-block: 22px; border-top: 1px solid #22355c; }
       .foot a { color: #fff; }
       .foot-link { text-decoration: underline; text-underline-offset: 3px; }
+      .visits { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
+      .visits b { color: #fff; font-family: var(--f-display); font-weight: 600; }
+      .visits a { display: inline-flex; align-items: center; min-height: 32px; }
     </style>
   </body>
 </html>

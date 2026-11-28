@@ -85,6 +85,10 @@ export const site = {
       illustrative: "المعاينة توضيحية ببيانات وهمية.",
     },
     credit: "تصميم وإعداد: محمد الشهري",
+    visits: "عدد زيارات الموقع",
+    visitSources: "مصادر الزيارات",
+    visitsLive: "زيارة لهذا الموقع حتى الآن",
+    visitsNote: "إحصائيات عامة ومفتوحة، بدون كوكيز.",
   },
   en: {
     name: "Mohammed Alshehri",
@@ -159,6 +163,10 @@ export const site = {
       illustrative: "Preview is illustrative, with mock data.",
     },
     credit: "Designed and built by Mohammed Alshehri",
+    visits: "Site visits",
+    visitSources: "Visit sources",
+    visitsLive: "visits to this site so far",
+    visitsNote: "Open public statistics, no cookies.",
   },
 };
 

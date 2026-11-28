@@ -173,6 +173,12 @@ const strengthIcons = ["discover", "flow", "spark", "precise"];
       <span class="end-node" aria-hidden="true"><Icon name="check" size={18} /></span>
       <h2>{s.sections.contact.title}</h2>
       <p>{s.sections.contact.intro}</p>
+      <a class="live-stats" href="https://mohdalshehri.goatcounter.com" target="_blank" rel="noopener" data-visits-box hidden>
+        <span class="pulse" aria-hidden="true"></span>
+        <span class="ls-num"><b data-visits dir="ltr">0</b><span>{s.visitsLive}</span></span>
+        <span class="ls-more"><span>{s.visitSources}</span><small>{s.visitsNote}</small></span>
+        <svg class="ls-spark" viewBox="0 0 120 32" aria-hidden="true"><path d="M2 26 L18 22 L30 24 L44 14 L58 18 L72 9 L86 12 L100 5 L118 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="118" cy="3" r="2.6" fill="currentColor"/></svg>
+      </a>
       <ul class="channels">
         <li><a href={contact.whatsapp} target="_blank" rel="noopener"><Icon name="whatsapp" /><span>{l.whatsapp}</span><small dir="ltr">{contact.phoneDisplay}</small></a></li>
         <li><a href={`tel:${contact.phone}`}><Icon name="phone" /><span>{l.call}</span><small dir="ltr">{contact.phoneDisplay}</small></a></li>
@@ -335,6 +341,27 @@ const strengthIcons = ["discover", "flow", "spark", "precise"];
   .contact-in { position: relative; padding-inline-start: var(--gutter); padding-block: clamp(72px, 10vw, 120px); }
   .contact h2 { color: #fff; font-size: clamp(2rem, 5vw, 3.6rem); line-height: 1.2; max-width: 18ch; letter-spacing: -0.01em; }
   .contact > div > p { margin-top: 18px; font-size: 1.1rem; }
+  /* ---------- عداد الزيارات الحي ---------- */
+  .live-stats { display: grid; grid-template-columns: auto auto 1fr auto; align-items: center; gap: 14px 22px; margin-top: 36px; padding: 18px 24px; border-radius: 18px; text-decoration: none; color: #fff; background: linear-gradient(120deg, rgba(44,102,255,.18), rgba(44,102,255,.04)); border: 1px solid #2f4a80; max-width: 760px; transition: border-color .2s, background .2s; }
+  .live-stats[hidden] { display: none; }
+  .live-stats:hover { border-color: var(--volt); background: linear-gradient(120deg, rgba(44,102,255,.3), rgba(44,102,255,.08)); }
+  .pulse { position: relative; inline-size: 12px; block-size: 12px; border-radius: 50%; background: #4ee0a8; }
+  .pulse::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid #4ee0a8; animation: ping 2s ease-out infinite; }
+  @keyframes ping { from { transform: scale(.5); opacity: .9; } to { transform: scale(1.6); opacity: 0; } }
+  .ls-num { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .ls-num b { font-family: var(--f-display); font-weight: 700; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1; color: #fff; font-variant-numeric: tabular-nums; }
+  .ls-num span { color: #c9d4ea; font-size: .98rem; }
+  .ls-more { display: grid; justify-items: start; border-inline-start: 1px solid #2f4a80; padding-inline-start: 22px; }
+  .ls-more span { font-family: var(--f-display); font-weight: 500; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #8fb0ff; }
+  .ls-more small { color: #9fb0cf; font-size: .82rem; margin-top: 2px; }
+  .ls-spark { inline-size: 120px; block-size: 32px; color: #8fb0ff; }
+  :global([dir="rtl"]) .ls-spark { transform: scaleX(-1); }
+  @media (prefers-reduced-motion: reduce) { .pulse::after { animation: none; } }
+  @media (max-width: 640px) {
+    .live-stats { grid-template-columns: auto 1fr; padding: 16px 18px; gap: 12px 14px; margin-top: 28px; }
+    .ls-more { grid-column: 1 / -1; border: 0; padding: 12px 0 0; border-top: 1px solid #2f4a80; }
+    .ls-spark { display: none; }
+  }
   .channels { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 44px; }
   .channels a { display: grid; gap: 4px; padding: 20px; border-radius: 14px; border: 1px solid #2a3f68; text-decoration: none; color: #fff; transition: background .2s, border-color .2s; }
   .channels a:hover { background: var(--volt); border-color: var(--volt); }
