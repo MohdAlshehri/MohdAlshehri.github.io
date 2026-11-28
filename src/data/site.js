@@ -252,8 +252,8 @@ export const recommendations = [
     },
     by: { ar: "د. أحمد سعيد", en: "Dr. Ahmad Saeed" },
     role: {
-      ar: "استشاري الأعصاب ومدير برنامج الإقامة، المستشفى السعودي الألماني – عسير",
-      en: "Consultant Neurologist & Residency Program Director, Saudi German Hospital – Aseer",
+      ar: "استشاري جراحة مخ وأعصاب ومدير برنامج الإقامة، المستشفى السعودي الألماني – عسير",
+      en: "Consultant Neurosurgeon & Residency Program Director, Saudi German Hospital – Aseer",
     },
   },
   {
